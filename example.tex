@@ -1,0 +1,37 @@
+% Beim Laden der documentclass können zwar Schrift- und Papiergröße angegeben werden, allerdings überschreibt das Paket fth-lsa
+\documentclass{scrreport}
+
+\usepackage[ngerman]{babel}
+
+\usepackage{fth/fth-lsa}
+% Verfügbare Option bound für gebundene Arbeiten (breiterer Rand)
+% \usepackage[bound]{fth/fth-lsa}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\title{Ein aussagekräftiger Titel}
+\subtitle{Ein Untertitel}
+\author{Manfred Mustermann}
+\date{heute}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Ein Kapitel}
+\section{Ein Abschnitt}
+\lipsum
+
+\section{Noch ein Abschnitt}
+In diesem Abschnitt wird etwas in Anführungszeichen gesetzt: \blockquote{In diesem Anführungszeichen gibt es noch welche \enquote{nämlich hier}}. Und jetzt kommt ein Zitat über ein paar mehr Zeilen: \blockquote{\lipsum[1]} Und weiter geht's. mit dem Absatz, ohne Einrückung. Das klappt ja hervorragend. \lipsum[2]. \blockquote{Hier ein Zitat, das über fast 3 Zeilen geht und daher nicht als Block dargestellt werden sollte. Es ist wie es ist, und es kommt wie es kommt. So kommt es nämlich immer. Ein bisschen Text brauch ich noch, und noch ein bisschen, und wenn jetzt noch was}
+
+\section{Fußnoten}
+In diesem Abschnitt kommt mal eine Fußnote.\footnote{Das hier ist eine Fußnote. Sie geht über mehrere Zeilen, und sie sollten einen einzeiligen Zeilenabstand haben. \lipsum[1]} Jetzt nochmal einiger Text: \lipsum[1-9]\footnote{Das hier ist eine weitere Fußnote im selben Kapitel. Sie sollte fortlaufend numeriert werden.}
+
+\chapter{Noch ein Kapitel mit weiteren Fußnoten}
+Das hier ist ein neues Kapitel.\footnote{Das hier ist eine Fußnote im neuen Kapitel. Sie sollte trotzdem weiter numeriert werden und nicht die Nummer 1 erhalten}
+
+
+\end{document}
