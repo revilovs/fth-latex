@@ -1,0 +1,77 @@
+% Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH
+% Autor: Oliver von Seydlitz
+% Auf Grundlage der Bachelorarbeit von Micha Piertzik
+% und den Vorlagen für die Hochschule für Technik und Wirtschaft Dresden von Falk-Jonathan Strube
+\ProvidesPackage{fth-lsa}[2022/11/09 Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH Gießen]
+
+% ==================================================================
+% Rahmen am Anfang: Abhängigkeit zu KOMA-Script, makeatletter etc. *
+% ==================================================================
+% Funktioniert nur mit KOMA-Script
+\ifcsname KOMAoption\endcsname%
+\makeatletter
+
+% =========================
+% Formattierung allgemein *
+% =========================
+% Nicht aus den Leitlinie, sondern persönliche Präferenz: Sans-Font
+\renewcommand{\familydefault}{\sfdefault}
+
+% ========================
+% 1.2 Zeilenabstand etc. *
+% ========================
+\KOMAoption{fontsize}{12pt} % Bei 12pt ist \footnotesize automatisch 10pt
+\RequirePackage[onehalfspacing]{setspace} % Zeilenabstand 1.5
+
+% ==================
+% 1.3 Seitenränder *
+% ==================
+\RequirePackage{geometry}
+\geometry{
+    left=4cm,right=2cm,top=2cm,bottom=1cm,
+    includeheadfoot
+}
+
+% Linker Seitenrand bei Bindung
+\DeclareOption{bound}{\geometry{left=5.5cm}}
+\ProcessOptions\relax
+
+
+% ============
+% 1.4 Zitate *
+% ============
+\RequirePackage[
+    style=german, % Immer Deutsche Anführungszeichen
+    threshold=3, % ab 3 Zeilen im Block
+    thresholdtype=lines
+]{csquotes}
+
+% Zeilenabstand in Zitaten in Blocksatz
+\newenvironment*{singlespcquote}
+    {\begin{spacing}{1}\quote}
+    {\endquote\end{spacing}}
+
+\SetBlockEnvironment{singlespcquote}
+
+% ==============
+% 1.5 Fußnoten *
+% ==============
+\geometry{footnotesep=1.5em}
+\counterwithout{footnote}{chapter} % Fußnoten durchgehend nummerieren
+
+% TODO: Option, bei Abschlussarbeiten Kapitelweise zu nummerieren
+
+% ================================================
+% 1.6 - 1.12: hier nichts besonders einzustellen *
+% ================================================
+
+
+
+% ====================================================
+% Rahmen Ende: Schluss von \ifcsname und makeatother *
+% ====================================================
+\else
+\PackageError{fth-lsa}{fth-lsa needs a KOMA class!}%
+\fi
+
+\makeatother
