@@ -60,7 +60,11 @@
 % 1.5 Fußnoten *
 % ==============
 \geometry{footnotesep=1.5em}
-\counterwithout{footnote}{chapter} % Fußnoten durchgehend nummerieren
+
+% Fußnoten durchgehend nummerieren, außer bei Abschlussarbeiten
+\ifdefined\@thesis\else
+    \counterwithout{footnote}{chapter}
+\fi
 
 % TODO: Option, bei Abschlussarbeiten Kapitelweise zu nummerieren
 
