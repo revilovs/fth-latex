@@ -11,6 +11,12 @@
 \ifcsname KOMAoption\endcsname%
 \makeatletter
 
+% ========================
+% Variablen für Optionen *
+% ========================
+\DeclareOption{bound}{\def\@bound{}}
+\ProcessOptions\relax
+
 % =========================
 % Formattierung allgemein *
 % =========================
@@ -33,9 +39,7 @@
 }
 
 % Linker Seitenrand bei Bindung
-\DeclareOption{bound}{\geometry{left=5.5cm}}
-\ProcessOptions\relax
-
+\ifdefined\@bound \geometry{left=5.5cm} \fi
 
 % ============
 % 1.4 Zitate *
