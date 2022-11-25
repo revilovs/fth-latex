@@ -8,6 +8,8 @@
 % \usepackage[bound]{fth/fth-lsa}
 % Verfügbare Option thesis für Abschlussarbeiten (andere Titelseite und Fußnoten kapitelweise nummeriert)
 
+\usepackage{lipsum}
+
 \begin{document}
 
 \title{Beispiel für die Titelseite von Abschlussarbeiten}
@@ -22,6 +24,14 @@
 \date{25. November 2022}
 
 \maketitle
+
+\chapter{Ein Kapitel}
+Dieses Kapitel dient nur dazu, zu überprüfen, ob die Fußnoten-Nummerierung \footnote{In Abschlussarbeiten soll nämlich kapitelweise nummeriert werden.} funktioniert. Deswegen kommt gleich das nächste Kapitel.
+
+\chapter{Noch ein Kapitel}
+Das hier ist noch ein Kapitel \footnote{Diese Fußnote sollte wieder die Nummer 1 bekommen}.
+
+\lipsum \footnote{Das ist eine weitere Fußnote im zweiten Kapitel. Sie sollte die Nummer 2 erhalten. Fußnoten sollten immer mit Großbuchstabend beginnen und Punkt enden. Sind auch Fragen erlaubt?}
 
 
 
