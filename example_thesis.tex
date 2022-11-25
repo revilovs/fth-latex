@@ -1,0 +1,28 @@
+% Beim Laden der documentclass können zwar Schrift- und Papiergröße angegeben werden, allerdings überschreibt das Paket fth-lsa
+\documentclass{scrreport}
+
+\usepackage[ngerman]{babel}
+
+\usepackage[thesis]{fth/fth-lsa}
+% Verfügbare Option bound für gebundene Arbeiten (breiterer Rand)
+% \usepackage[bound]{fth/fth-lsa}
+% Verfügbare Option thesis für Abschlussarbeiten (andere Titelseite und Fußnoten kapitelweise nummeriert)
+
+\begin{document}
+
+\title{Beispiel für die Titelseite von Abschlussarbeiten}
+\subtitle{nach der \enquote{Leitlinien für schriftliche Arbeiten an der FTH}}
+\thesistype{Bachelorarbeit}
+\department{Praktische Theologie}
+\referee{Prof. Dr. X}
+\secondreferee{Dr. Y}
+\wordcount{12345}
+\author{Martin Muster}
+\submissionplace{Gießen}
+\date{25. November 2022}
+
+\maketitle
+
+
+
+\end{document}

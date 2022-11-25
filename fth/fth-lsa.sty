@@ -15,6 +15,7 @@
 % Variablen für Optionen *
 % ========================
 \DeclareOption{bound}{\def\@bound{}}
+\DeclareOption{thesis}{\def\@thesis{}}
 \ProcessOptions\relax
 
 % =========================
@@ -72,6 +73,76 @@
 % 1.6 - 1.12: hier nichts besonders einzustellen *
 % ================================================
 
+
+% ================================
+% 2. Gestaltung des Titelblattes *
+% ================================
+
+% Variablen für die Titelseite
+\newcommand{\department}[1]{\gdef\@department{#1}}
+\newcommand{\thesistype}[1]{\gdef\@thesistype{#1}}
+\newcommand{\course}[1]{\gdef\@course{#1}}
+\newcommand{\module}[1]{\gdef\@module{#1}}
+\newcommand{\semester}[1]{\gdef\@semester{#1}}
+\newcommand{\lecturer}[1]{\gdef\@lecturer{#1}}
+\newcommand{\referee}[1]{\gdef\@referee{#1}}
+\newcommand{\secondreferee}[1]{\gdef\@secondreferee{#1}}
+\newcommand{\wordcount}[1]{\gdef\@wordcount{#1}}
+\newcommand{\submissionplace}[1]{\gdef\@submissionplace{#1}}
+
+\renewcommand*{\maketitle}{
+\begin{titlepage}
+    \begin{center}
+    %%% Die Zeilen für titlehead, subject, title, subtitle und author sind immer vorhanden (spacing)
+    \strut\\
+    \strut\\
+    \strut\\
+    {\noindent\@titlehead{}\strut}\\%
+    {\Huge\bfseries\MakeUppercase{\@title{}}\strut}\\%
+    {\Large\MakeUppercase{\@subtitle{}}\strut}\\%
+    %
+    \strut\\%
+    \strut\\%
+    \strut\\%
+    %
+    {\Large%
+        %
+        \ifdefined\@thesis%
+            \@thesistype{}\strut\\%
+            \ifdefined\@department Vorgelegt in der Abteilung \@department{}\strut\\ \fi%
+            \strut\\%
+            Freie Theologische Hochschule Gießen \\%
+            \strut\\%
+            \strut\\%
+            \ifdefined\@referee Erstgutachter: \@referee{} \\ \fi%
+            \ifdefined\@secondreferee Zweitgutachter \@secondreferee{} \\ \fi%
+            \strut\\%
+            \ifdefined\@wordcount \@wordcount{} Wörter \\ \fi%
+        \else%
+            \ifdefined\@thesistype\@thesistype{}%
+                \ifdefined\@course \ für die Lehrveranstaltung \\%
+                \enquote{\@course{}}\\%
+                \fi%
+            \fi%
+            %
+            \ifdefined\@module Modul: \@module{}\strut \\\fi%
+            Freie Theologische Hochschule Gießen \\%
+            \ifdefined\@semester \@semester{}\strut \\\fi%
+            \ifdefined\@lecturer \@lecturer{}\strut \\\fi%
+            %
+        \fi%
+        %
+        %
+        \strut\\%
+        \strut\\%
+        \strut\\%
+        \@author{}\strut\\%
+        \ifdefined\@submissionplace \@submissionplace{}, \fi \@date{} \\%
+    }
+
+    \end{center}
+\end{titlepage}
+}
 
 
 % ====================================================
