@@ -123,8 +123,8 @@
         \else%
             \ifdefined\@thesistype\@thesistype{}%
                 \ifdefined\@course \ für die Lehrveranstaltung \\%
-                \enquote{\@course{}}\\%
-                \fi%
+                \enquote{\@course{}}%
+                \fi \strut\\%
             \fi%
             %
             \ifdefined\@module Modul: \@module{}\strut \\\fi%
