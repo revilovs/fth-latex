@@ -64,7 +64,7 @@
 
 % Fußnoten durchgehend nummerieren, außer bei Abschlussarbeiten
 \ifdefined\@thesis\else
-    \counterwithout{footnote}{chapter}
+    \ifdefined\chapter\counterwithout{footnote}{chapter}\fi
 \fi
 
 % TODO: Option, bei Abschlussarbeiten Kapitelweise zu nummerieren
