@@ -1,0 +1,202 @@
+% Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH: Gestaltung der Bibliografie
+% Autor: Oliver von Seydlitz
+% Auf Grundlage der Bachelorarbeit von Micha Piertzik
+\ProvidesPackage{fth-bib}[2022/11/09 Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH Gießen: Gestaltung der Bibliografie]
+
+\RequirePackage[style=verbose-ibid,
+ibidpage=true,
+citestyle=authortitle-ibid,
+hyperref=true,
+backend=biber,
+sortlocale=de,
+language=german,
+mincrossrefs=1000]{biblatex}
+
+\DeclareFieldFormat{pages}{#1}	% keine "S."-Angaben
+\DeclareFieldFormat{postnote}{#1}	% keine "S."-Angaben
+\renewcommand{\newunitpunct}{\addcomma\space}
+\renewbibmacro*{finentry}{}
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+\renewcommand*{\mkbibnameprefix}[1]{\textsc{#1}}
+\DeclareFieldFormat*{title}{#1}             % Format for bibliography
+\DeclareFieldFormat*{booktitle}{#1}         % Format for bibliography
+\DeclareFieldFormat*{journaltitle}{#1}           % Format for bibliography
+\DeclareFieldFormat*{citetitle}{#1}         % Format for citation
+
+\renewcommand*{\multinamedelim}{~/\space}   % delim between first and second author
+\renewcommand*{\finalnamedelim}{~/\space}   % delim between first and second author
+
+\DefineBibliographyStrings{german}{%
+%   and     = {u\adddot},
+  urlseen = {vom},
+%   urlfrom = {online unter},
+}
+
+\DeclareFieldFormat{url}{\mbox{\url{#1}}}
+
+\renewbibmacro*{publisher+location+date}{%
+    \printlist{location}%
+    \setunit*{\addspace}
+    \printfield{year}%
+}
+
+\renewbibmacro*{urldate}{%
+    \bibstring{urlseen}
+    \setunit*{\addspace}%
+    \printtext{\printfield{urlday}\setunit*{\adddot}%
+              \printfield{urlmonth}\setunit*{\adddot}%
+             \printfield{urlyear}%
+             \setunit*{\adddot}}
+}
+
+\renewbibmacro*{date}{%
+  \printdate
+  \iffieldundef{origyear}{%
+  }{%
+    \setunit*{\addspace}%
+    \printtext[parens]{\printorigdate}%
+  }%
+}
+
+\newbibmacro*{title+volume+series}{
+  \newunit\newblock
+  \printfield{title}%
+  \iffieldundef{volume}{}
+  {\setunit*{\addcomma\addspace}
+   \printfield{volume}
+  }
+  \iffieldundef{series}
+  {}
+  {
+  \setunit*{\addspace}
+  \printtext[parens]{\printfield{series}}
+  }
+  \newunit\newblock
+}
+
+\newbibmacro*{booktitle+series}{
+  \newunit\newblock
+  \printfield{booktitle}%
+  \iffieldundef{series}
+  {}
+  {
+  \setunit*{\addspace}
+  \printtext[parens]{\usebibmacro{series+number}}%
+  }
+  \newunit\newblock
+}
+
+\newbibmacro*{edition+location+year}{
+    \printfield{edition}%
+    \setunit*{\addspace}
+    \printlist{location}%
+    \setunit*{\addspace}
+    \printfield{year}%
+}
+
+\DeclareBibliographyDriver{book}{%
+    \usebibmacro{bibindex}%
+    \usebibmacro{begentry}%
+    \printnames{author}%
+    \usebibmacro{title+volume+series}%
+    \printorigdate%
+    \newunit\newblock%
+    \usebibmacro{edition+location+year}
+    \usebibmacro{finentry}
+}
+
+\DeclareBibliographyDriver{article}{%
+    \usebibmacro{bibindex}%
+    \usebibmacro{begentry}%
+    % \printnames{author}%
+    \usebibmacro{author/translator+others}%
+    \newunit\newblock
+    \printfield{title}%
+    \newunit\newblock
+    \usebibmacro{in:}%
+    \printfield{journaltitle}
+    \setunit*{\addspace}
+    \printfield{issue}%
+    \newunit\newblock
+    \printfield{year}%
+    \newunit\newblock
+    \printfield{pages}%
+    \newunit\newblock
+    \usebibmacro{finentry}
+}
+
+\DeclareBibliographyDriver{incollection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{in:}%
+  \usebibmacro{byeditor+others}%
+  \newunit\newblock
+  \usebibmacro*{booktitle+series}%
+  \newunit\newblock
+%   \printfield{edition}%
+%   \newunit
+  \iffieldundef{maintitle}
+    {\printfield{volume}%
+     \printfield{part}}
+    {}%
+  \newunit
+  \printfield{volumes}%
+  \newunit\newblock
+  \printfield{note}%
+  \newunit\newblock
+  \usebibmacro{edition+location+year}%
+  \newunit\newblock
+  \usebibmacro{chapter+pages}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{isbn}}
+    {}%
+  \newunit\newblock
+%   \usebibmacro{doi+eprint+url}%
+%   \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+\renewbibmacro*{byeditor+others}{% %Hg. bzw Hgg. in Klammern hinter Herausgeber, statt davor
+        \ifnameundef{editor}
+        {}
+        {\printnames[byeditor]{editor}%
+                \setunit{\addspace}%
+                \usebibmacro{editor+othersstrg}%
+                \clearname{editor}%
+                \newunit}%
+        \usebibmacro{byeditorx}%
+        \usebibmacro{bytranslator+others}}
+
+\DefineBibliographyStrings{german}{%
+        % andothers = {et\ al\adddot}, %et al. statt u.a.
+        editor = {\mkbibparens{Hg\adddot}}, %Hg. statt Hrsg.
+        editors = {\mkbibparens{Hg\adddot}}, %Hgg. plural
+        byeditor = {\mkbibparens {Hg\adddot}},
+}
+
+\xpatchbibmacro{editor}%
+  {\setunit{\addcomma\space}}% no comme before editor string ...
+  {\setunit{\addspace}}% ... just a space
+  {}
+  {}
+ \xpatchbibmacro{bbx:editor}% some styles use a fancier version of the macro
+  {\setunit{\addcomma\space}}% no comme before editor string ...
+  {\setunit{\addspace}}% ... just a space
+  {}
+  {}
