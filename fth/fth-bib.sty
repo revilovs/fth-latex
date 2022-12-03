@@ -190,6 +190,8 @@ mincrossrefs=1000]{biblatex}
         byeditor = {\mkbibparens {Hg\adddot}},
 }
 
+
+\RequirePackage{xpatch}
 \xpatchbibmacro{editor}%
   {\setunit{\addcomma\space}}% no comme before editor string ...
   {\setunit{\addspace}}% ... just a space
