@@ -13,4 +13,4 @@ Einfach googeln, wo auf Windows das Äquivalent von TEXMFHOME liegt und die Pake
 
 
 ## Dank
-Diese Vorlagen wurden auf Grundlage der Bachelorarbeit von Micha P. erstellt, danke fürs Bereitstellen! Außerdem habe ich mich an den LaTeX-Vorlagen für die HTW Dresden von @GenericFJS orientiert.
+Diese Vorlagen wurden auf Grundlage der Bachelorarbeit von Micha P. erstellt, danke fürs Bereitstellen! Außerdem habe ich mich an den LaTeX-Vorlagen für die HTW Dresden von [@GenericFJS](https://github.com/genericFJS) orientiert.
