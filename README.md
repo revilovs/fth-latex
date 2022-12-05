@@ -11,6 +11,21 @@ sollte LaTeX-Pakete ins lokale `TEXMFHOME` kopieren. Das ist ein Verzeichnis, in
 ### Windows
 Einfach googeln, wo auf Windows das Äquivalent von TEXMFHOME liegt und die Pakete unter `fth-lsa` dorthin kopieren, dann sollten sie auch systemweit verfügbar sein.
 
+## Verwendung
+Ausführliche Beispiele zur Verwendung finden sich in `example.tex` und `example_thesis.tex` (da die Vorgaben für Abschlussarbeiten etwas anders sind.)
+
+Zitate funktionieren am einfachsten mit
+```
+\blockcquote[Vgl.][30f]{key}{Hier das eigentliche Zitat}
+```
+wobei
+- "Vgl." am anfang der Fußnote angezeigt wird
+- 30f der Verweis auf die Seitenzahl ist
+- `key` auf den key in der `.bib`-Resource verweist
+- zu beachten ist, dass `blockcquote` noch ein `c` hinter dem `block` hat
+
+## Was das Paket (noch) nicht kann
+Hebräisch. Griechisch kann man ganz einfach als UTF-8 schreiben und sollte korrekt angezeigt werden. Hebräisch geht noch nicht. Dafür muss ich wohl von `babel` auf `polyglossia` umstellen, damit kenne ich mich aber noch nicht aus.
 
 ## Dank
 Diese Vorlagen wurden auf Grundlage der Bachelorarbeit von Micha P. erstellt, danke fürs Bereitstellen! Außerdem habe ich mich an den LaTeX-Vorlagen für die HTW Dresden von [@GenericFJS](https://github.com/genericFJS) orientiert.
