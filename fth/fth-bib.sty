@@ -37,7 +37,8 @@ mincrossrefs=1000]{biblatex}
 %   urlfrom = {online unter},
 }
 
-\DeclareFieldFormat{url}{\mbox{\url{#1}}}
+%\DeclareFieldFormat{url}{\mbox{\url{#1}}}
+\appto{\biburlsetup}{\renewcommand*{\UrlFont}{\normalfont\itshape}}
 
 \renewbibmacro*{publisher+location+date}{%
     \printlist{location}%
