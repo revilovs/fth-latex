@@ -24,8 +24,21 @@ wobei
 - `key` auf den key in der `.bib`-Resource verweist
 - zu beachten ist, dass `blockcquote` noch ein `c` hinter dem `block` hat
 
+## Kompilierung
+Ich verwendet zur Kompilierung `latexmk` mit folgenden Einstellungen
+```
+latexmk -synctex=1 -interaction=nonstopmode -file-line-error -xelatex example.tex
+```
+wobei die meisten der Argumente von meiner IDE generiert wurden und einige vermutlich nicht zwingend nötig sind. Entscheidend ist auf jeden fall `-xelatex`. Statt `latexmk` funktioniert vermutlich auch die Abfolge (ich habe es aber nicht getestet)
+```
+xelatex
+biblatex
+xelatex
+xelatex
+```
+
 ## Was das Paket (noch) nicht kann
 Hebräisch. Griechisch kann man ganz einfach als UTF-8 schreiben und sollte korrekt angezeigt werden. Hebräisch geht noch nicht. Dafür muss ich wohl von `babel` auf `polyglossia` umstellen, damit kenne ich mich aber noch nicht aus.
 
 ## Dank
-Diese Vorlagen wurden auf Grundlage der Bachelorarbeit von Micha P. erstellt, danke fürs Bereitstellen! Außerdem habe ich mich an den LaTeX-Vorlagen für die HTW Dresden von [@GenericFJS](https://github.com/genericFJS) orientiert.
+Diese Pakete, insbesondere die BibLaTeX-Einstellungen, wurden auf Grundlage der Bachelorarbeit von Micha P. erstellt, danke fürs Bereitstellen! Außerdem habe ich mich an den LaTeX-Vorlagen für die HTW Dresden von [@GenericFJS](https://github.com/genericFJS) orientiert, besonders bei der Titelseite.
