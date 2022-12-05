@@ -25,7 +25,7 @@ wobei
 - zu beachten ist, dass `blockcquote` noch ein `c` hinter dem `block` hat
 
 ## Kompilierung
-Ich verwendet zur Kompilierung `latexmk` mit folgenden Einstellungen
+Ich verwende zur Kompilierung `latexmk` mit folgenden Einstellungen
 ```
 latexmk -synctex=1 -interaction=nonstopmode -file-line-error -xelatex example.tex
 ```
