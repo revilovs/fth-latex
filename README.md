@@ -11,6 +11,9 @@ sollte LaTeX-Pakete ins lokale `TEXMFHOME` kopieren. Das ist ein Verzeichnis, in
 ### Windows
 Einfach googeln, wo auf Windows das Äquivalent von TEXMFHOME liegt und die Pakete unter `fth-lsa` dorthin kopieren, dann sollten sie auch systemweit verfügbar sein.
 
+### Oder
+Wenn das mit `TEXMFHOME` nicht funktioniert, kann man die `.sty`-Dateien auch einfach im lokalen Verzeichnis ablegen und trotzdem wie gewohnt mit `usepackage{fth-lsa}` importieren.
+
 ## Verwendung
 Ausführliche Beispiele zur Verwendung finden sich in `example.tex` und `example_thesis.tex` (da die Vorgaben für Abschlussarbeiten etwas anders sind.)
 
