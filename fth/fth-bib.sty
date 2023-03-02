@@ -82,6 +82,12 @@ mincrossrefs=1000]{biblatex}
   \newunit\newblock
 }
 
+\newbibmacro*{volume+number}{
+  \iffieldundef{volume}{}{\printfield{volume}\printtext{/}}%
+  \iffieldundef{issue}{\printfield{number}}{\printfield{issue}}
+  \newunit\newblock
+}
+
 \newbibmacro*{booktitle+series}{
   \newunit\newblock
   \printfield{booktitle}%
@@ -124,7 +130,7 @@ mincrossrefs=1000]{biblatex}
     \usebibmacro{in:}%
     \printfield{journaltitle}
     \setunit*{\addspace}
-    \printfield{issue}%
+    \usebibmacro{volume+number}%
     \newunit\newblock
     \printfield{year}%
     \newunit\newblock
