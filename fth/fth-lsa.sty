@@ -151,6 +151,20 @@
 % ==============================================
 \RequirePackage[hidelinks]{hyperref}
 
+% ======================================
+% Text für Selbstständigkeitserklärung *
+% ======================================
+\newcommand{\statementofauthorship}{%
+\ifdefined\chapter\chapter*{Selbstständigkeitserklärung}%
+\else\section*{Selbstständigkeitserklärung}%
+\fi%
+Hiermit bestätige ich, dass ich die vorliegende Arbeit selbständig verfasst und keine anderen als die angegebenen Hilfsmittel benutzt habe. Die Stellen der Arbeit, die dem Wortlaut oder dem Sinn nach anderen Werken (dazu zählen auch Internetquellen) entnommen sind, wurden unter Angabe der Quelle kenntlich gemacht.\\%
+\strut\\%
+\strut\\%
+\strut\\%
+\@date{}\strut\\%
+}
+
 
 % ====================================================
 % Rahmen Ende: Schluss von \ifcsname und makeatother *
