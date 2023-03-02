@@ -113,7 +113,7 @@ maxnames=2]{biblatex}
 \DeclareBibliographyDriver{book}{%
     \usebibmacro{bibindex}%
     \usebibmacro{begentry}%
-    \printnames{author}%
+    \usebibmacro{author/editor}%
     \usebibmacro{title+volume+series}%
     \printorigdate%
     \newunit\newblock%
