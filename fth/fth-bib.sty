@@ -3,6 +3,13 @@
 % Auf Grundlage der Bachelorarbeit von Micha Piertzik
 \ProvidesPackage{fth-bib}[2022/11/09 Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH Gießen: Gestaltung der Bibliografie]
 
+
+% ========================
+% Variablen für Optionen *
+% ========================
+\DeclareOption{authorsc}{\def\@authorsc{}}
+\ProcessOptions\relax
+
 \RequirePackage[style=verbose-ibid,
 ibidpage=true,
 citestyle=authortitle-ibid,
@@ -23,9 +30,11 @@ maxnames=2]{biblatex}
 \renewcommand{\newunitpunct}{\addcomma\space}
 \renewbibmacro*{finentry}{}
 
-% TODO: Optionally execute this, it prints author names in small caps
-%\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
-%\renewcommand*{\mkbibnameprefix}[1]{\textsc{#1}}
+% Autoren bei \citeauthor in Small caps, wenn Option gesetzt
+\ifdefined\@authorsc
+  \renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+  \renewcommand*{\mkbibnameprefix}[1]{\textsc{#1}}
+\fi
 
 \DeclareFieldFormat*{title}{#1}             % Format for bibliography
 \DeclareFieldFormat*{booktitle}{#1}         % Format for bibliography
