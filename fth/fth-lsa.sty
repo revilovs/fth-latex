@@ -106,6 +106,7 @@
 \newcommand{\department}[1]{\gdef\@department{#1}}
 \newcommand{\thesistype}[1]{\gdef\@thesistype{#1}}
 \newcommand{\course}[1]{\gdef\@course{#1}}
+\newcommand{\courses}[1]{\gdef\@courses{#1}}
 \newcommand{\module}[1]{\gdef\@module{#1}}
 \newcommand{\semester}[1]{\gdef\@semester{#1}}
 \newcommand{\lecturer}[1]{\gdef\@lecturer{#1}}
@@ -146,7 +147,9 @@
             \ifdefined\@thesistype\@thesistype{}%
                 \ifdefined\@course \ für die Lehrveranstaltung \\%
                 \enquote{\@course{}}%
-                \fi \strut\\%
+                \else\ifdefined\@courses \ für die Lehrveranstaltungen \\%
+                \@courses{}%
+                \fi\fi \strut\\%
             \fi%
             %
             \ifdefined\@module Modul: \@module{}\strut \\\fi%
