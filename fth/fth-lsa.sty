@@ -63,6 +63,9 @@
 % ==============
 \geometry{footnotesep=1.5em}
 
+% Fußnoten sollen hängend sein
+\RequirePackage[hang]{footmisc}
+
 % Fußnoten durchgehend nummerieren, außer bei Abschlussarbeiten
 \ifdefined\@thesis\else
     \ifdefined\chapter\counterwithout{footnote}{chapter}\fi
