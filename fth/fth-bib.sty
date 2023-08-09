@@ -22,7 +22,11 @@ mincrossrefs=1000,
 minnames=2,
 maxnames=2]{biblatex}
 
-\RequirePackage{csquotes}
+\RequirePackage[
+    style=german, % Immer Deutsche Anführungszeichen
+    threshold=3, % ab 3 Zeilen im Block
+    thresholdtype=lines
+]{csquotes}
 
 \KOMAoption{bibliography}{totoc}
 
