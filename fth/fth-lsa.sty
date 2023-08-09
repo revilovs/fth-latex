@@ -17,6 +17,7 @@
 \DeclareOption{bound}{\def\@bound{}}
 \DeclareOption{thesis}{\def\@thesis{}}
 \DeclareOption{tre}{\def\@tre{}}
+\DeclareOption{title-style=sc}{\def\@titlesc{}}
 \ProcessOptions\relax
 
 % =========================
@@ -63,6 +64,9 @@
 % 1.5 Fußnoten *
 % ==============
 \geometry{footnotesep=1.5em}
+
+% Fußnoten sollen hängend sein
+\RequirePackage[hang]{footmisc}
 
 % Fußnoten durchgehend nummerieren, außer bei Abschlussarbeiten
 \ifdefined\@thesis\else
@@ -123,8 +127,20 @@
     \strut\\
     \strut\\
     {\noindent\@titlehead{}\strut}\\%
-    {\Huge\bfseries\setstretch{1.0}\MakeUppercase{\@title{}}\strut\\}%
-    {\Large\setstretch{1.0}\MakeUppercase{\@subtitle{}}\strut\\}%
+    {\Huge\bfseries\setstretch{1.0}%
+	\ifdefined\@titlesc%
+	    \textsc{\@title{}}\strut\\%
+	\else%
+            \MakeUppercase{\@title{}}\strut\\%
+	\fi%
+    }%
+    {\Large\setstretch{1.0}%
+        \ifdefined\@titlesc%
+	    \textsc{\@subtitle{}}\strut\\%
+	\else%
+	    \MakeUppercase{\@subtitle{}}\strut\\%
+	\fi%
+    }%
     %
     \strut\\%
     \strut\\%

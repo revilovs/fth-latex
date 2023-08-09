@@ -12,6 +12,7 @@
 
 \RequirePackage[style=verbose-ibid,
 ibidpage=true,
+loccittracker=context,
 citestyle=authortitle-ibid,
 hyperref=true,
 backend=biber,
@@ -20,6 +21,12 @@ language=german,
 mincrossrefs=1000,
 minnames=2,
 maxnames=2]{biblatex}
+
+\RequirePackage[
+    style=german, % Immer Deutsche Anführungszeichen
+    threshold=3, % ab 3 Zeilen im Block
+    thresholdtype=lines
+]{csquotes}
 
 \KOMAoption{bibliography}{totoc}
 
@@ -183,10 +190,10 @@ maxnames=2]{biblatex}
   \newunit\newblock
   \usebibmacro{chapter+pages}%
   \newunit\newblock
-  \iftoggle{bbx:isbn}
-    {\printfield{isbn}}
-    {}%
-  \newunit\newblock
+%  \iftoggle{bbx:isbn}
+%    {\printfield{isbn}}
+%    {}%
+%  \newunit\newblock
 %   \usebibmacro{doi+eprint+url}%
 %   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
