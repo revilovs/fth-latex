@@ -28,7 +28,9 @@ maxnames=2]{biblatex}
     thresholdtype=lines
 ]{csquotes}
 
-\KOMAoption{bibliography}{totoc}
+\ifdefined\KOMAoption
+  \KOMAoption{bibliography}{totoc}
+\fi
 
 \SetCiteCommand{\autocite}
 
