@@ -18,6 +18,7 @@
 \DeclareOption{thesis}{\def\@thesis{}}
 \DeclareOption{tre}{\def\@tre{}}
 \DeclareOption{title-style=sc}{\def\@titlesc{}}
+\DeclareOption{lecture-notes}{\def\@lecturenotes{}}
 \ProcessOptions\relax
 
 % =========================
@@ -31,6 +32,8 @@
 \KOMAoption{fontsize}{12pt} % Bei 12pt ist \footnotesize automatisch 10pt
 \RequirePackage[onehalfspacing]{setspace} % Zeilenabstand 1.5
 
+\ifdefined\@lecturenotes \singlespacing \fi % Bei Mitschriften normaler Abstand
+
 % ==================
 % 1.3 Seitenränder *
 % ==================
@@ -42,6 +45,8 @@
 
 % Linker Seitenrand bei Bindung
 \ifdefined\@bound \geometry{left=5.5cm} \fi
+% Normaler Seitenrand für Mitschriften
+\ifdefined\@lecturenotes \geometry{left=2cm} \fi
 
 % ============
 % 1.4 Zitate *
@@ -206,6 +211,18 @@ Hiermit bestätige ich, dass ich die vorliegende Arbeit selbständig verfasst un
 \strut\\%
 \@date{}\strut\\%
 }
+
+
+% ===================================
+% Special features für Mitschriften *
+% ===================================
+\ifdefined\@lecturenotes
+    \let\emph\relax
+    \DeclareTextFontCommand{\emph}{\bfseries}
+    \RequirePackage{enumitem}
+    \setitemize{itemsep=0pt}
+    \setenumerate{itemsep=0pt}
+\fi
 
 
 % ====================================================
