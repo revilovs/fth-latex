@@ -28,26 +28,20 @@
 % ==================================================
 % Textkritische Symbole mit der Schriftart SBL Greek *
 % ==================================================
-\IfFontExistsTF{SBL Greek}{
-    \newfontfamily\textcrit{SBL Greek} % Versuchen, den Font aus den Systemfonts zu laden
-}{
-    \newfontfamily\textcrit{SBL Greek}[Extension = .ttf] % Sonst mit lokaler Datei versuchen (z.B. auf Overleaf)
-}
-\newcommand{\tc}[1]{{\textcrit #1}}
-\newcommand{\tcReplacement}{{\textcrit ⸀}}
-\newcommand{\tcReplacementStart}{{\textcrit ⸂}}
-\newcommand{\tcReplacementEnd}{{\textcrit ⸃}}
-\newcommand{\tcInsertion}{{\textcrit ⸆}}
-\newcommand{\tcOmission}{{\textcrit °}}
-\newcommand{\tcRepositioningStart}{{\textcrit ⸉}}
-\newcommand{\tcRepositioningEnd}{{\textcrit ⸊}}
-\newcommand{\tcOmissionStart}{{\textcrit ⸋}}
-\newcommand{\tcOmissionEnd}{{\textcrit ⸌}}
-\newcommand{\tcInterpunctionVariant}{{\textcrit \textsuperscript{:}}}
-\newcommand{\tcUnsureStart}{{\textcrit [}}
-\newcommand{\tcUnsureEnd}{{\textcrit ]}}
-\newcommand{\tcEarlyInsertionStart}{{\textcrit ⟦}}
-\newcommand{\tcEarlyInsertioneEnd}{{\textcrit ⟧}}
+\newcommand{\tcReplacement}{\grk{⸀}}
+\newcommand{\tcReplacementStart}{\grk{⸂}}
+\newcommand{\tcReplacementEnd}{\grk{⸃}}
+\newcommand{\tcInsertion}{\grk{⸆}}
+\newcommand{\tcOmission}{\grk{°}}
+\newcommand{\tcRepositioningStart}{\grk{⸉}}
+\newcommand{\tcRepositioningEnd}{\grk{⸊}}
+\newcommand{\tcOmissionStart}{\grk{⸋}}
+\newcommand{\tcOmissionEnd}{\grk{⸌}}
+\newcommand{\tcInterpunctionVariant}{\grk{\textsuperscript{:}}}
+\newcommand{\tcUnsureStart}{\grk{[}}
+\newcommand{\tcUnsureEnd}{\grk{]}}
+\newcommand{\tcEarlyInsertionStart}{\grk{⟦}}
+\newcommand{\tcEarlyInsertioneEnd}{\grk{⟧}}
 
 % =================================================================
 % Tabelle für Textvarianten (Format wie im NT-Seminar vorgegeben) *

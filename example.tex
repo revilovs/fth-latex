@@ -99,14 +99,14 @@ Völlig aus dem Zusammenhang gerissen, aber weil es ein Sammelband ist, den ich 
 Auch die Weiten des Internets bieten vieles, was man zitieren kann: \blockcquote[][]{strecker}{Unter \enquote{Berufung} versteht man gemeinhin die \textelp{} Indienstnahme für bestimmte Aufgaben.}
 
 \chapter{Kapitel mit NT-Späßen}
-Das Paket \texttt{fth-nt-utils} bietet einige hilfreiche Befehle für die Arbeit mit dem Neuen Testament, insbesondere für das NT-Seminar im 3. Semester. So enthält es Befehle für die Symbole für den Nestle-Aland (\na), die LXX (\lxx), den Mehrheitstext (\majoritytext) und Papyri (\papyrus{46}). Außerdem können textkritische Symbole auf zwei Arten angezeigt werden, entweder direkt mit dem Unicode-Symbol \tc{⸀ ⸂ ⸃ ⸆ ° ⸉ ⸊} oder mit besonderen Befehlen \tcOmissionStart{} \tcOmissionEnd. Für alle verfügbaren Befehle bitte direkt den Code des Pakets konsultireren.
+Das Paket \texttt{fth-nt-utils} bietet einige hilfreiche Befehle für die Arbeit mit dem Neuen Testament, insbesondere für das NT-Seminar im 3. Semester. So enthält es Befehle für die Symbole für den Nestle-Aland (\na), die LXX (\lxx), den Mehrheitstext (\majoritytext) und Papyri (\papyrus{46}). Außerdem können textkritische Symbole auf zwei Arten angezeigt werden, entweder direkt mit dem Unicode-Symbol \grk{⸀ ⸂ ⸃ ⸆ ° ⸉ ⸊} oder mit besonderen Befehlen \tcOmissionStart{} \tcOmissionEnd. Für alle verfügbaren Befehle bitte direkt den Code des Pakets konsultireren.
 
 Für Textkritik gibt es auch Befehle, um Tabellen textkritischer Varianten im Format für das NT-Seminar zu erstellen:
 \begin{table}[ht]
     \centering
     \begin{textvarianttable}
         \textvariant{
-            ὅς (\textit{textus})
+            \grk{ὅς} (\textit{textus})
         }{
             --
         }{
@@ -141,7 +141,7 @@ Für Textkritik gibt es auch Befehle, um Tabellen textkritischer Varianten im Fo
     
     
         \textvariant{
-            ὅ
+            \grk{ὅ}
         }{
             \emph{\witnesscat{\papyrus{46}}{2/3}{I}}
         }{
@@ -158,38 +158,38 @@ Für Textkritik gibt es auch Befehle, um Tabellen textkritischer Varianten im Fo
         }
     \end{textvarianttable}
 
-    \caption{Varianten für Kol 2,10 \tc{⸀}ὅς}
+    \caption{Varianten für Kol 2,10 \grk{⸀ὅς}}
 \end{table}
 
 Für synoptische Vergleiche gibt es ebenfalls Befehle:
 \begin{table}[ht]
     \begin{synopticcomparisontable}{Mt 18:2-5}{Mk 9:36-37}{Lk 9:47b-48}
          \synopticentry{
-             2 \synspecial{καὶ προσκαλεσάμενος} \synall{παιδίον ἔστησεν αὐτὸ} \synmtmk{ἐν μέσῳ αὐτῶν} 3 καὶ \synall{εἶπεν·}
+             \grk{2 \synspecial{καὶ προσκαλεσάμενος} \synall{παιδίον ἔστησεν αὐτὸ} \synmtmk{ἐν μέσῳ αὐτῶν} 3 καὶ \synall{εἶπεν·}}
          }{
-             36 καὶ \synmklk{λαβὼν} \synall{παιδίον ἔστησεν αὐτὸ} \synmtmk{ἐν μέσῳ αὐτῶν} \synspecial{καὶ ἐναγκαλισάμενος αὐτὸ} \synall{εἶπεν} αὐτοῖς·
+             \grk{36 καὶ \synmklk{λαβὼν} \synall{παιδίον ἔστησεν αὐτὸ} \synmtmk{ἐν μέσῳ αὐτῶν} \synspecial{καὶ ἐναγκαλισάμενος αὐτὸ} \synall{εἶπεν} αὐτοῖς·}
          }{
-             \synmklk{ἐπιλαβόμενος} \synall{παιδίον ἔστησεν αὐτὸ} \synspecial{παρ’ ἑαυτῷ} 48 καὶ \synall{εἶπεν} αὐτοῖς· 
+             \grk{\synmklk{ἐπιλαβόμενος} \synall{παιδίον ἔστησεν αὐτὸ} \synspecial{παρ’ ἑαυτῷ} 48 καὶ \synall{εἶπεν} αὐτοῖς·}
          }
  
          \synopticentry{
-             \synspecial{ἀμὴν λέγω ὑμῖν, ἐὰν μὴ στραφῆτε καὶ γένησθε ὡς τὰ παιδία, οὐ μὴ εἰσέλθητε εἰς τὴν βασιλείαν τῶν οὐρανῶν. 4 ὅστις οὖν ταπεινώσει ἑαυτὸν ὡς τὸ παιδίον τοῦτο,} \synmtlk{οὗτός ἐστιν ὁ μείζων} \synspecial{ἐν τῇ βασιλείᾳ τῶν οὐρανῶν.}
+             \grk{\synspecial{ἀμὴν λέγω ὑμῖν, ἐὰν μὴ στραφῆτε καὶ γένησθε ὡς τὰ παιδία, οὐ μὴ εἰσέλθητε εἰς τὴν βασιλείαν τῶν οὐρανῶν. 4 ὅστις οὖν ταπεινώσει ἑαυτὸν ὡς τὸ παιδίον τοῦτο,} \synmtlk{οὗτός ἐστιν ὁ μείζων} \synspecial{ἐν τῇ βασιλείᾳ τῶν οὐρανῶν.}}
          }{
          }{
          }
  
          \synopticentry{
-             5 καὶ \synall{ὃς ἐὰν δέξηται} \synmtmk{ἓν} \synall{παιδίον} \synmtmk{τοιοῦτο} \synall{ἐπὶ τῷ ὀνόματί μου, ἐμὲ δέχεται.}
+             \grk{5 καὶ \synall{ὃς ἐὰν δέξηται} \synmtmk{ἓν} \synall{παιδίον} \synmtmk{τοιοῦτο} \synall{ἐπὶ τῷ ὀνόματί μου, ἐμὲ δέχεται.}}
          }{
-             37 \synall{ὃς ἂν} \synmtmk{ἓν τῶν τοιούτων} \synall{παιδίων δέξηται ἐπὶ τῷ ὀνόματί μου, ἐμὲ δέχεται·} \synmklk{καὶ ὃς ἂν ἐμὲ δέχηται,} \synspecial{οὐκ ἐμὲ} \synmklk{δέχεται} \synspecial{ἀλλὰ} \synmklk{τὸν ἀποστείλαντά με}
+             \grk{37 \synall{ὃς ἂν} \synmtmk{ἓν τῶν τοιούτων} \synall{παιδίων δέξηται ἐπὶ τῷ ὀνόματί μου, ἐμὲ δέχεται·} \synmklk{καὶ ὃς ἂν ἐμὲ δέχηται,} \synspecial{οὐκ ἐμὲ} \synmklk{δέχεται} \synspecial{ἀλλὰ} \synmklk{τὸν ἀποστείλαντά με}}
          }{
-             \synall{ὃς ἐὰν δέξηται} \synspecial{τοῦτο} \synall{τὸ παιδίον ἐπὶ τῷ ὀνόματί μου, ἐμὲ δέχεται·} \synmklk{καὶ ὃς ἂν ἐμὲ δέξηται, δέχεται τὸν ἀποστείλαντά με·}
+             \grk{\synall{ὃς ἐὰν δέξηται} \synspecial{τοῦτο} \synall{τὸ παιδίον ἐπὶ τῷ ὀνόματί μου, ἐμὲ δέχεται·} \synmklk{καὶ ὃς ἂν ἐμὲ δέξηται, δέχεται τὸν ἀποστείλαντά με·}}
          }
  
          \synopticentry{
          }{
          }{
-             \synspecial{ὁ γὰρ μικρότερος ἐν πᾶσιν ὑμῖν ὑπάρχων} \synmtlk{οὗτός ἐστιν μέγας}
+             \grk{\synspecial{ὁ γὰρ μικρότερος ἐν πᾶσιν ὑμῖν ὑπάρχων} \synmtlk{οὗτός ἐστιν μέγας}}
          }
     \end{synopticcomparisontable}
     \caption{Synoptischer Vergleich zum Rangstreit}
