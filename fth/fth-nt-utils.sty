@@ -28,7 +28,11 @@
 % ==================================================
 % Textkritische Symbole mit der Schriftart Quivira *
 % ==================================================
-\newfontfamily\textcrit{Quivira}
+\IfFontExistsTF{Quivira}{
+    \newfontfamily\textcrit{Quivira} % Versuchen, den Font aus den Systemfonts zu laden
+}{
+    \newfontfamily\textcrit{Quivira}[Extension = .otf] % Sonst mit lokaler Datei versuchen (z.B. auf Overleaf)
+}
 \newcommand{\tc}[1]{{\textcrit #1}}
 \newcommand{\tcReplacement}{{\textcrit ⸀}}
 \newcommand{\tcReplacementStart}{{\textcrit ⸂}}
