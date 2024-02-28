@@ -17,7 +17,7 @@ Wenn das mit `TEXMFHOME` nicht funktioniert, kann man die `.sty`-Dateien auch ei
 ## Abhängigkeiten
 Die Pakete `fth-lsa` und `fth-bib` sollten mit einer Standard-LaTeX-2e-Installation problemlos funktionieren.
 
-Das Paket `fth-nt-utils` benötigt den Font Quivira für textkritische Symbole. Er kann unter http://www.quivira-font.com bezogen werden und muss ganz normal auf dem System installiert sein. Alternativ (bspw. auf Overleaf) kann die OTF-Datei auch im lokalen Verzeichnis abgelegt werden.
+Das Paket `fth-nt-utils` benötigt den Font SBL Greek für textkritische Symbole. Er kann unter https://www.sbl-site.org/educational/BiblicalFonts_SBLGreek.aspx bezogen werden und muss ganz normal auf dem System installiert sein. Alternativ (bspw. auf Overleaf) kann die TTF-Datei auch im lokalen Verzeichnis abgelegt werden.
 
 ## Pakete und Verwendung
 Das Repository stellt verschiedene Pakete zur Verfügung. Es sollten nur diejenigen, die wirklich benötigt werden, verwendet werden:
