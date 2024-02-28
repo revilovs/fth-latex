@@ -14,18 +14,18 @@ Einfach googeln, wo auf Windows das Äquivalent von TEXMFHOME liegt und die Pake
 ### Oder
 Wenn das mit `TEXMFHOME` nicht funktioniert, kann man die `.sty`-Dateien auch einfach im lokalen Verzeichnis ablegen und trotzdem wie gewohnt mit `usepackage{fth-lsa}` importieren.
 
-## Verwendung
-Ausführliche Beispiele zur Verwendung finden sich in `example.tex` und `example_thesis.tex` (da die Vorgaben für Abschlussarbeiten etwas anders sind.)
+## Abhängigkeiten
+Die Pakete `fth-lsa` und `fth-bib` sollten mit einer Standard-LaTeX-2e-Installation problemlos funktionieren.
 
-Zitate funktionieren am einfachsten mit
-```
-\blockcquote[Vgl.][30f]{key}{Hier das eigentliche Zitat}
-```
-wobei
-- "Vgl." am anfang der Fußnote angezeigt wird
-- 30f der Verweis auf die Seitenzahl ist
-- `key` auf den key in der `.bib`-Resource verweist
-- zu beachten ist, dass `blockcquote` noch ein `c` hinter dem `block` hat
+Das Paket `fth-nt-utils` benötigt den Font Quivira für textkritische Symbole. Er kann unter http://www.quivira-font.com bezogen werden und muss ganz normal auf dem System installiert sein. Alternativ (bspw. auf Overleaf) kann die OTF-Datei auch im lokalen Verzeichnis abgelegt werden.
+
+## Pakete und Verwendung
+Das Repository stellt verschiedene Pakete zur Verfügung. Es sollten nur diejenigen, die wirklich benötigt werden, verwendet werden:
+- `fth-lsa` setzt die Formattierungs-Richtlinien aus den Leitlinien für schriftliche Arbeiten an der FTH (ohne Zitate) um.
+- `fth-bib` setzt die Richtlinien zur Formattierung von Zitaten und Literaturverzeichnis um.
+- `fth-nt-utils` stellt einige hilfreiche Befehle zur Arbeit mit neutestamentlichen Texten zur Verfügung, z.B. für Textkritik oder synoptische Vergleiche.
+
+Ausführliche Beispiele zur Verwendung aller Pakete finden sich in `example.tex` und `example_thesis.tex` (da die Vorgaben für Abschlussarbeiten etwas anders sind.)
 
 ## Kompilierung
 Ich verwende zur Kompilierung `latexmk` mit folgenden Einstellungen
