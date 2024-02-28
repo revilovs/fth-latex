@@ -1,30 +1,49 @@
 % Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH: Nutzung der Sprachen Griechisch und Hebräisch
 % Autor: Micha Piertzik
-\ProvidesPackage{fth-lang}[2023/12/21 Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH Gießen: Nutzung der Sprachen Griechisch und Hebräisch]
+\ProvidesPackage{fth-lang}[2024/02/28 Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH Gießen: Nutzung der Sprachen Griechisch und Hebräisch]
 
 % Es wird vorausgesetzt, dass die Fonts "SBL Hebrew" und "SBL Greek" istalliert sind! Download:
 %   https://www.sbl-site.org/educational/BiblicalFonts_SBLHebrew.aspx
 %   https://www.sbl-site.org/educational/BiblicalFonts_SBLGreek.aspx
 
-% Bei KOMA-Script Klassen wird die Font der Überschrift geändert. Wenn man \heb{} oder \grk{} in Überschriften verwenden will, muss man bei er documentclass als Option "headings=standardclasses" angeben.
+% ===========================================================
+% Diese Pakete werden von anderen FTH-Pakten gebraucht,     *
+% müssen aber vor bidi (für Hebräisch nötig) geladen werden *
+% ===========================================================
+\RequirePackage{geometry}
+\RequirePackage{multicol}
+\RequirePackage{hyperref}
 
-% ========================
-% Variablen für Optionen *
-% ========================
+% ======================
+% Sprachen-Einstellung *
+% ======================
 \RequirePackage{polyglossia}
-	\setmainlanguage{german}
-	\setotherlanguage[variant=american]{english}
-	\setotherlanguage[variant=ancient]{greek}
-	\setotherlanguage{hebrew} %vorher https://www.sbl-site.org/educational/BiblicalFonts_SBLHebrew.aspx installieren
+\setmainlanguage{german}
+\setotherlanguage[variant=american]{english}
+\setotherlanguage[variant=ancient]{greek}
+\setotherlanguage{hebrew}
 \newcommand{\heb}[1]{\texthebrew{#1}}
 \newcommand{\grk}[1]{\textgreek{#1}}
 
 
+% ========================
+% Fonts für die Sprachen *
+% ========================
 \RequirePackage{fontspec}
+
+% Zunächst wird versucht, den Font über das System zu laden, andernfalls wird lokal nach einer passenden Datei gesucht (z.B. bei Overleaf nötig)
+\IfFontExistsTF{SBL Greek}{
 	\newfontfamily{\greekfont}{SBL Greek}
 	\newfontfamily{\greekfontsf}{SBL Greek}
+}{
+	\newfontfamily{\greekfont}{SBL_grk.ttf}
+	\newfontfamily{\greekfontsf}{SBL_grk.ttf}
+}
+\IfFontExistsTF{SBL Hebrew}{
 	\newfontfamily{\hebrewfont}{SBL Hebrew}
 	\newfontfamily{\hebrewfontsf}{SBL Hebrew}
-
-
+}{
+	\newfontfamily{\hebrewfont}{SBL_Hbrw.ttf}
+	\newfontfamily{\hebrewfontsf}{SBL_Hbrw.ttf}
+}
 

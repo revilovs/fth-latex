@@ -1,6 +1,5 @@
 % scrartcl ist eine geeignete Klasse für bspw. Handouts.
-% headings=standardclasses hält die Klasse davon ab, die Fonts der Überschriften zu ändern, was wir benötigen, weil sonst kein hebräisch im Titel funktioniert!
-\documentclass[headings=standardclasses]{scrartcl}
+\documentclass{scrartcl}
 
 % Wir wollen griechisch und hebräisch nutzen, daher "fth-lang".
 % Voraussetzung dafür ist, dass die Fonts "SBL Hebrew" "SBL Greek" installiert sind!
@@ -11,6 +10,7 @@
 % Für Literatur verwenden wir "fth-bib".
 \usepackage[authorsc]{fth-bib}
 % Hier muss der Pfad zur .bib Datei angegeben werden:
+% TODO Micha: Bib-Datei ebenfalls ablegen oder aus Beispiel entfernen
 \addbibresource{~/Nextcloud/Literatursammlung/lit.bib}
 
 \author{Micha Piertzik}
