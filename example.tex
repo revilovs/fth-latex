@@ -1,7 +1,11 @@
 % Beim Laden der documentclass können zwar Schrift- und Papiergröße angegeben werden, allerdings überschreibt das Paket fth-lsa
 \documentclass{scrreport}
 
-\usepackage[ngerman]{babel}
+\usepackage{fth/fth-lang}
+% Paket für Hebräisch und Griechisch, muss unbedingt vor den anderen Paketen geladen werden.
+% Erfordert Installation der Fonts SBL Hebrew und Greek: 
+% https://www.sbl-site.org/educational/BiblicalFonts_SBLHebrew.aspx
+% https://www.sbl-site.org/educational/BiblicalFonts_SBLGreek.aspx
 
 \usepackage{fth/fth-lsa}
 % Verfügbare Optionen für das Paket fth-lsa
@@ -39,7 +43,7 @@
 
 % \title, \author und \date müssen immer gesetzt sein, alle anderen Felder sind optional
 \title{Umsetzung der \enquote{Leitlinien für schriftliche Arbeiten an der FTH}}
-\subtitle{Ein Beispieldokument}
+\subtitle{Ein Beispieldokument mit \grk{κοινὴ} und \heb{עִבְרִית}}
 \thesistype{Übung}
 \course{Einführung ins wissenschaftliche Arbeiten}
 % Alternativ bei mehreren Fächern:
@@ -55,6 +59,7 @@
 \tableofcontents
 
 \chapter{Ein Kapitel}
+\label{chap:firstchapter}
 \section{Ein Abschnitt}
 \lipsum
 
@@ -68,11 +73,15 @@ Bibelstellen sollten entsprechend den Loccumer Richtlinien oder der TRE abgekür
 \section{Fußnoten}
 In diesem Abschnitt kommt mal eine Fußnote.\footnote{Das hier ist eine Fußnote. Sie geht über mehrere Zeilen, und sie sollten einen einzeiligen Zeilenabstand haben. \lipsum[1]} Jetzt nochmal einiger Text: \lipsum[1-9]\footnote{Das hier ist eine weitere Fußnote im selben Kapitel. Sie sollte fortlaufend numeriert werden.}
 
-\chapter{Noch ein Kapitel mit weiteren Fußnoten}
-Das hier ist ein neues Kapitel.\footnote{Das hier ist eine Fußnote im neuen Kapitel. Sie sollte trotzdem weiter numeriert werden und nicht die Nummer 1 erhalten}
+\chapter{Noch ein Kapitel mit weiteren Fußnoten und tollen Sprachen}
+Das hier ist ein neues Kapitel.\footnote{Das hier ist eine Fußnote im neuen Kapitel. Sie sollte trotzdem weiter numeriert werden und nicht die Nummer 1 erhalten}. Außerdem noch ein Rückverweis auf \autoref{chap:firstchapter}
 
-\section{Überschrift mit Griechischen Buchstaben: λόγος}
-Das funktioniert ja hervorragend! Und noch ein bisschen Griechisch im Text: πνευματος.
+\section{Überschrift mit Griechischen Buchstaben: \grk{λόγος}}
+\label{sec:greek}
+Das funktioniert ja hervorragend! Und noch ein bisschen Griechisch im Text: \grk{Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.}
+
+\section{Überschrift mit Hebräischen Buchstaben: \heb{בְּרֵאשִׁ֖ית}}
+Etwas hebräischer Text: \heb{בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃}. In \autoref{sec:greek} gab's Griechisch.
 
 \chapter{Kapitel mit Zitaten}
 Hier könnte jetzt ein sinnvoller Text stehen. Aber es geht ja nur um die korrekte Form. Daher steht hier einfach irgendetwas. Jetzt kommt ein direktes Zitat. \citeauthor*{friesen} schreibt zum Thema Berufung: \blockcquote[][330]{friesen}{Rather than waiting for some kind of mystical \enquote{call} from God, every believer should respond to the revealed will of God by giving serious consideration to becoming a cross-cultural missionary.} Jetzt kommt noch ein Zitat aus demselben Werk: \blockcquote[][330]{friesen}{We don't need a call -- we've already been commissioned.} Weil dieses Zitat aus demselben Werk kommt und auf derselben Seite steht, sollte die Fußnote es einfach mit \enquote{ebd.} erwähnen.

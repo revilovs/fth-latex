@@ -1,0 +1,35 @@
+% scrartcl ist eine geeignete Klasse für bspw. Handouts.
+\documentclass{scrartcl}
+
+% Wir wollen griechisch und hebräisch nutzen, daher "fth-lang".
+% Voraussetzung dafür ist, dass die Fonts "SBL Hebrew" "SBL Greek" installiert sind!
+% https://www.sbl-site.org/educational/BiblicalFonts_SBLHebrew.aspx
+% https://www.sbl-site.org/educational/BiblicalFonts_SBLGreek.aspx
+\usepackage{fth-lang}
+
+% Für Literatur verwenden wir "fth-bib".
+\usepackage[authorsc]{fth-bib}
+% Hier muss der Pfad zur .bib Datei angegeben werden:
+\addbibresource{literature.bib}
+
+\author{Max Mustermann}
+\title{Ein Handout}
+\subtitle{Mit sollten Sprachen \heb{ירא} und \grk{λόγος}}
+
+\begin{document}
+
+\maketitle
+
+Hier folgt der tolle Text des Handouts, inkl. Bibelstellen in Originalsprachen, z.~B. Dtn~6,13 (\heb{אֶת־יְהוָ֧ה אֱלֹהֶ֛יךָ תִּירָ֖א וְאֹתֹ֣ו תַעֲבֹ֑ד וּבִשְׁמֹ֖ו תִּשָּׁבֵֽעַ׃}).
+Es braucht natürlich auch NT, s. Mt~10,28 (\grk{Καὶ μὴ ⸀φοβεῖσθε ἀπὸ τῶν ἀποκτεννόντων τὸ σῶμα, τὴν δὲ ψυχὴν μὴ δυναμένων ἀποκτεῖναι· ⸁φοβεῖσθε δὲ μᾶλλον τὸν δυνάμενον καὶ ψυχὴν καὶ σῶμα ἀπολέσαι ἐν γεέννῃ.}).
+
+
+
+% Zum Schluss wollen wir noch ein paar Literaturverweise angeben. Dabei kann auch \heb{} oder \grk{} im Titel verwendet werden.
+\nocite{aust}
+\nocite{fuhs}
+
+\printbibliography
+
+\end{document}
+
