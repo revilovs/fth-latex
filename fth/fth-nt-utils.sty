@@ -1,0 +1,96 @@
+% Autor: Oliver von Seydlitz
+\ProvidesPackage{fth-nt-utils}[2024/02/28 Tools für die Arbeit mit neutestamentlichen Texten, vor allem im NT-Seminar]
+
+
+\RequirePackage{multirow} % Für Textkritik-Tabellen
+\RequirePackage{fontspec} % Für textkritische Symbole
+\RequirePackage{amsfonts} % Für die Symbole für Mehrheitstext und Papyri
+\RequirePackage{ulem}     % Für synoptische Vergleiche
+\RequirePackage{xcolor}   % Für synoptische Vergleiche
+
+% ==================
+% Kleinere Befehle *
+% ==================
+
+% Symbol für Nestle-Aland 28
+\newcommand{\na}{NA\textsuperscript{28}}
+% Symbol für Mehrheitstext
+\newcommand{\majoritytext}{$\mathfrak{M}$}
+% Symbol für Septuaginta
+\newcommand{\lxx}{$\mathfrak{S}$}
+% Befehl für Textzeugen mit hochgestelltem Symbol (Papyri oder Korrekturen von Majuskeln)
+\newcommand{\witness}[2]{#1\textsuperscript{#2}}
+% Befehl für Papyri
+\newcommand{\papyrus}[1]{\witness{$\mathfrak{P}$}{#1}}
+% Befehl für Textzeugen mit Jahrhundert und Qualität (Format wie im NT-Seminar vorgegeben)
+\newcommand{\witnesscat}[3]{#1\textsubscript{#2}#3}
+
+% ==================================================
+% Textkritische Symbole mit der Schriftart Quivira *
+% ==================================================
+\newfontfamily\textcrit{Quivira}
+\newcommand{\tc}[1]{{\textcrit #1}}
+\newcommand{\tcReplacement}{{\textcrit ⸀}}
+\newcommand{\tcReplacementStart}{{\textcrit ⸂}}
+\newcommand{\tcReplacementEnd}{{\textcrit ⸃}}
+\newcommand{\tcInsertion}{{\textcrit ⸆}}
+\newcommand{\tcOmission}{{\textcrit °}}
+\newcommand{\tcRepositioningStart}{{\textcrit ⸉}}
+\newcommand{\tcRepositioningEnd}{{\textcrit ⸊}}
+\newcommand{\tcInterpunctionVariant}{{\textcrit \textsuperscript{:}}}
+\newcommand{\tcUnsureStart}{{\textcrit [}}
+\newcommand{\tcUnsureEnd}{{\textcrit ]}}
+\newcommand{\tcEarlyInsertionStart}{{\textcrit ⟦}}
+\newcommand{\tcEarlyInsertioneEnd}{{\textcrit ⟧}}
+
+% =================================================================
+% Tabelle für Textvarianten (Format wie im NT-Seminar vorgegeben) *
+% =================================================================
+\newenvironment{textvarianttable}{
+    \begin{tabular}{| p{2cm} | p{11cm} | p{2cm} |}
+        \hline
+        \emph{Variante} & \emph{Zeugen} & \emph{Art der Zeugen} \\
+        \hline
+}{
+    \end{tabular}
+}
+
+\newcommand{\textvariant}[6]{
+    \multirow{5}{*}{\parbox{2cm}{#1}} & #2 & Pap. \\
+    & #3 & Maj. \\
+    & #4 & Min. \\
+    & #5 & Üb. \\
+    & #6 & KiVä. \\
+    \hline
+}
+
+% ==========================================================================
+% Tabelle für synoptischen Vergleich (Format wie im NT-Seminar vorgegeben) *
+% ==========================================================================
+\newenvironment{synopticcomparisontable}[3]{
+    \begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
+        \hline
+        \emph{#1} & \emph{#2} & \emph{#3} \\
+        \hline
+}{
+    \hline
+    \end{tabular}
+}
+
+\newcommand{\synopticentry}[3]{
+    #1 & #2 & #3 \\
+}
+
+\newcommand{\synspecial}[1]{\dashuline{#1}}
+
+\newcommand\synall{\bgroup\markoverwith
+      {\textcolor{blue}{\rule[-0.5ex]{2pt}{1pt}}}\ULon}
+
+\newcommand\synmtmk{\bgroup\markoverwith
+      {\textcolor{red}{\rule[-0.5ex]{2pt}{1pt}}}\ULon}
+
+\newcommand\synmklk{\bgroup\markoverwith
+      {\textcolor{green}{\rule[-0.5ex]{2pt}{1pt}}}\ULon}
+
+\newcommand\synmtlk{\bgroup\markoverwith
+      {\textcolor{yellow}{\rule[-0.5ex]{2pt}{1pt}}}\ULon}
