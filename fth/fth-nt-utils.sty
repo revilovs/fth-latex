@@ -5,6 +5,7 @@
     \PackageError{fth-nt-utils}{fth-nt-utils needs fth-lang!}{}%
 }
 
+\makeatletter
 
 \RequirePackage{multirow} % Für Textkritik-Tabellen
 \RequirePackage{amsfonts} % Für die Symbole für Mehrheitstext und Papyri
@@ -49,8 +50,10 @@
 % =================================================================
 % Tabelle für Textvarianten (Format wie im NT-Seminar vorgegeben) *
 % =================================================================
+\newcommand{\witnesscolwidth}{\ifdefined\@lecturenotes 11.8cm \else\ifdefined\@bound 8.3cm \else 9.8cm \fi\fi}
+
 \newenvironment{textvarianttable}{
-    \begin{tabular}{| p{2cm} | p{11cm} | p{2cm} |}
+    \begin{tabular}{| p{2cm} | p{\witnesscolwidth} | p{2cm} |}
         \hline
         \textbf{Variante} & \textbf{Zeugen} & \textbf{Art der Zeugen} \\
         \hline
@@ -70,8 +73,10 @@
 % ==========================================================================
 % Tabelle für synoptischen Vergleich (Format wie im NT-Seminar vorgegeben) *
 % ==========================================================================
+\newcommand{\synopticcolwidth}{\ifdefined\@lecturenotes 5.27cm \else\ifdefined\@bound 4.1cm \else 4.6cm \fi\fi}
+
 \newenvironment{synopticcomparisontable}[3]{
-    \begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
+    \begin{tabular}{| p{\synopticcolwidth} | p{\synopticcolwidth} | p{\synopticcolwidth} |}
         \hline
         \textbf{#1} & \textbf{#2} & \textbf{#3} \\
         \hline
@@ -97,3 +102,7 @@
 
 \newcommand\synmtlk{\bgroup\markoverwith
       {\textcolor{yellow}{\rule[-0.5ex]{2pt}{1pt}}}\ULon}
+
+
+
+\makeatother
