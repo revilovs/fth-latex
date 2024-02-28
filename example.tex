@@ -22,6 +22,10 @@
 % das zu riskant ist, kann die Option tre verwenden, die stattdessen entsprechend der TRE formattiert,
 % was die FTH-Leitlinien ebenfalls erlauben.
 
+
+\usepackage{fth/fth-nt-utils}
+% Paket mit hilfreichen Befehlen für die Arbeit an neutestamentlichen Texten, s.u. für Beispiele
+
 \usepackage[authorsc]{fth/fth-bib}
 % Verfügbare Optionen für fth-bib 
 %     authorsc: Wenn gesetzt, wird Autor bei \citeauthor und in der Bibliographie in Small Caps
@@ -84,6 +88,104 @@ Und nun ein etwas längeres Zitat, das in Blocksatz gestellt wird, aus einer Fac
 Völlig aus dem Zusammenhang gerissen, aber weil es ein Sammelband ist, den ich gerade da habe und zitieren kann, schreibt \citeauthor*{hilbrands}: \blockcquote[][49]{hilbrands}{Wohl in keiner anderen theologischen Disziplin sind die Einflüsse der Bibelkritik so nachhaltig gewesen wie im Bereich des Alten Testaments.}
 
 Auch die Weiten des Internets bieten vieles, was man zitieren kann: \blockcquote[][]{strecker}{Unter \enquote{Berufung} versteht man gemeinhin die \textelp{} Indienstnahme für bestimmte Aufgaben.}
+
+\chapter{Kapitel mit NT-Späßen}
+Das Paket \texttt{fth-nt-utils} bietet einige hilfreiche Befehle für die Arbeit mit dem Neuen Testament, insbesondere für das NT-Seminar im 3. Semester. So enthält es Befehle für die Symbole für den Nestle-Aland (\na), die LXX (\lxx), den Mehrheitstext (\majoritytext) und Papyri (\papyrus{46}). Außerdem können textkritische Symbole auf zwei Arten angezeigt werden, entweder direkt mit dem Unicode-Symbol \tc{⸀ ⸂ ⸃ ⸆ ° ⸉ ⸊} oder mit besonderen Befehlen \tcOmissionStart{} \tcOmissionEnd. Für alle verfügbaren Befehle bitte direkt den Code des Pakets konsultireren.
+
+Für Textkritik gibt es auch Befehle, um Tabellen textkritischer Varianten im Format für das NT-Seminar zu erstellen:
+\begin{table}[ht]
+    \centering
+    \begin{textvarianttable}
+        \textvariant{
+            ὅς (\textit{textus})
+        }{
+            --
+        }{
+            \emph{\witnesscat{א}{4}{I}};
+            \emph{\witnesscat{A}{5}{I}};
+            \witnesscat{C}{5}{II};
+            \witnesscat{K}{9}{V};
+            \witnesscat{L}{9}{V};
+            \witnesscat{P}{9}{III};
+            \witnesscat{Ψ}{9/10}{III};
+            \witnesscat{075}{10}{III}; 
+            \witnesscat{0208}{6}{III};
+            \witnesscat{0278}{9}{?}
+        }{
+            \witnesscat{33}{9}{II};
+            \witnesscat{81}{11}{II};
+            \witnesscat{104}{11}{III};
+            \witnesscat{365}{13}{III};
+            \witnesscat{630}{14}{III};
+            \emph{\witnesscat{1175}{11}{I}};
+            \witnesscat{\witness{1241}{s}}{12}{III};
+            \witnesscat{1505}{11}{III};
+            \emph{\witnesscat{1739}{10}{I}};
+            \witnesscat{1881}{14}{II};
+            \witnesscat{2464}{9}{II};
+            \majoritytext
+        }{
+            lat
+        }{
+            \witnesscat{Ambst}{4}{}
+        }
+    
+    
+        \textvariant{
+            ὅ
+        }{
+            \emph{\witnesscat{\papyrus{46}}{2/3}{I}}
+        }{
+            \witnesscat{B}{4}{III};
+            \witnesscat{D}{6}{II};
+            \witnesscat{F}{9}{II};
+            \witnesscat{G}{9}{III}
+        }{
+            --
+        }{
+            --
+        }{
+            \witnesscat{\witness{Hil}{pt}}{4}{}
+        }
+    \end{textvarianttable}
+
+    \caption{Varianten für Kol 2,10 \tc{⸀}ὅς}
+\end{table}
+
+Für synoptische Vergleiche gibt es ebenfalls Befehle:
+\begin{table}[ht]
+    \begin{synopticcomparisontable}{Mt 18:2-5}{Mk 9:36-37}{Lk 9:47b-48}
+         \synopticentry{
+             2 \synspecial{καὶ προσκαλεσάμενος} \synall{παιδίον ἔστησεν αὐτὸ} \synmtmk{ἐν μέσῳ αὐτῶν} 3 καὶ \synall{εἶπεν·}
+         }{
+             36 καὶ \synmklk{λαβὼν} \synall{παιδίον ἔστησεν αὐτὸ} \synmtmk{ἐν μέσῳ αὐτῶν} \synspecial{καὶ ἐναγκαλισάμενος αὐτὸ} \synall{εἶπεν} αὐτοῖς·
+         }{
+             \synmklk{ἐπιλαβόμενος} \synall{παιδίον ἔστησεν αὐτὸ} \synspecial{παρ’ ἑαυτῷ} 48 καὶ \synall{εἶπεν} αὐτοῖς· 
+         }
+ 
+         \synopticentry{
+             \synspecial{ἀμὴν λέγω ὑμῖν, ἐὰν μὴ στραφῆτε καὶ γένησθε ὡς τὰ παιδία, οὐ μὴ εἰσέλθητε εἰς τὴν βασιλείαν τῶν οὐρανῶν. 4 ὅστις οὖν ταπεινώσει ἑαυτὸν ὡς τὸ παιδίον τοῦτο,} \synmtlk{οὗτός ἐστιν ὁ μείζων} \synspecial{ἐν τῇ βασιλείᾳ τῶν οὐρανῶν.}
+         }{
+         }{
+         }
+ 
+         \synopticentry{
+             5 καὶ \synall{ὃς ἐὰν δέξηται} \synmtmk{ἓν} \synall{παιδίον} \synmtmk{τοιοῦτο} \synall{ἐπὶ τῷ ὀνόματί μου, ἐμὲ δέχεται.}
+         }{
+             37 \synall{ὃς ἂν} \synmtmk{ἓν τῶν τοιούτων} \synall{παιδίων δέξηται ἐπὶ τῷ ὀνόματί μου, ἐμὲ δέχεται·} \synmklk{καὶ ὃς ἂν ἐμὲ δέχηται,} \synspecial{οὐκ ἐμὲ} \synmklk{δέχεται} \synspecial{ἀλλὰ} \synmklk{τὸν ἀποστείλαντά με}
+         }{
+             \synall{ὃς ἐὰν δέξηται} \synspecial{τοῦτο} \synall{τὸ παιδίον ἐπὶ τῷ ὀνόματί μου, ἐμὲ δέχεται·} \synmklk{καὶ ὃς ἂν ἐμὲ δέξηται, δέχεται τὸν ἀποστείλαντά με·}
+         }
+ 
+         \synopticentry{
+         }{
+         }{
+             \synspecial{ὁ γὰρ μικρότερος ἐν πᾶσιν ὑμῖν ὑπάρχων} \synmtlk{οὗτός ἐστιν μέγας}
+         }
+    \end{synopticcomparisontable}
+    \caption{Synoptischer Vergleich zum Rangstreit}
+    \label{tab:synopticcomparison}
+ \end{table}
 
 \newpage
 \printbibliography[title=Literaturverzeichnis]
