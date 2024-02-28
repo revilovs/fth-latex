@@ -30,8 +30,20 @@
 % Fonts für die Sprachen *
 % ========================
 \RequirePackage{fontspec}
-\newfontfamily{\greekfont}{SBL Greek}
-\newfontfamily{\greekfontsf}{SBL Greek}
-\newfontfamily{\hebrewfont}{SBL Hebrew}
-\newfontfamily{\hebrewfontsf}{SBL Hebrew}
+
+% Zunächst wird versucht, den Font über das System zu laden, andernfalls wird lokal nach einer passenden Datei gesucht (z.B. bei Overleaf nötig)
+\IfFontExistsTF{SBL Greek}{
+	\newfontfamily{\greekfont}{SBL Greek}
+	\newfontfamily{\greekfontsf}{SBL Greek}
+}{
+	\newfontfamily{\greekfont}{SBL_grk.ttf}
+	\newfontfamily{\greekfontsf}{SBL_grk.ttf}
+}
+\IfFontExistsTF{SBL Hebrew}{
+	\newfontfamily{\hebrewfont}{SBL Hebrew}
+	\newfontfamily{\hebrewfontsf}{SBL Hebrew}
+}{
+	\newfontfamily{\hebrewfont}{SBL_Hbrw.ttf}
+	\newfontfamily{\hebrewfontsf}{SBL_Hbrw.ttf}
+}
 
