@@ -14,31 +14,33 @@ Einfach googeln, wo auf Windows das Äquivalent von TEXMFHOME liegt und die Pake
 ### Oder
 Wenn das mit `TEXMFHOME` nicht funktioniert, kann man die `.sty`-Dateien auch einfach im lokalen Verzeichnis ablegen und trotzdem wie gewohnt mit `usepackage{fth-lsa}` importieren.
 
-## Verwendung
-Ausführliche Beispiele zur Verwendung finden sich in `example.tex` und `example_thesis.tex` (da die Vorgaben für Abschlussarbeiten etwas anders sind.)
+## Abhängigkeiten
+Die Pakete `fth-lsa` und `fth-bib` sollten mit einer Standard-LaTeX-2e-Installation problemlos funktionieren.
 
-Zitate funktionieren am einfachsten mit
-```
-\blockcquote[Vgl.][30f]{key}{Hier das eigentliche Zitat}
-```
-wobei
-- "Vgl." am anfang der Fußnote angezeigt wird
-- 30f der Verweis auf die Seitenzahl ist
-- `key` auf den key in der `.bib`-Resource verweist
-- zu beachten ist, dass `blockcquote` noch ein `c` hinter dem `block` hat
+Das Paket `fth-lang` (und `fth-nt-utils`, das `fth-lang` benötigt) benötigt die Fonts [SBL Hebrew](https://www.sbl-site.org/educational/BiblicalFonts_SBLHebrew.aspx) und [SBL Greek](https://www.sbl-site.org/educational/BiblicalFonts_SBLGreek.aspx), die unter den verlinkten Seiten heruntergeladen werden können. Die Fonts müssen ganz normal auf dem System installiert werden oder alternativ (bspw. auf Overleaf) als TTF-Datei im lokalen Verzeichnis abgelegt werden.
+
+## Pakete und Verwendung
+Das Repository stellt verschiedene Pakete zur Verfügung. Es sollten nur diejenigen, die wirklich benötigt werden, verwendet werden:
+- `fth-lang` konfiguriert die Verwendung passender Fonts für Griechisch und Hebräisch. Es sollte als erstes geladen werden.
+- `fth-lsa` setzt die Formattierungs-Richtlinien aus den Leitlinien für schriftliche Arbeiten an der FTH (ohne Zitate) um.
+- `fth-bib` setzt die Richtlinien zur Formattierung von Zitaten und Literaturverzeichnis um.
+- `fth-nt-utils` stellt einige hilfreiche Befehle zur Arbeit mit neutestamentlichen Texten zur Verfügung, z.B. für Textkritik oder synoptische Vergleiche.
+
+Ausführliche Beispiele zur Verwendung aller Pakete finden sich in `example.tex`, `example_handout.tex` und `example_thesis.tex` (da die Vorgaben für Abschlussarbeiten etwas anders sind.)
 
 ## Kompilierung
 Ich verwende zur Kompilierung `latexmk` mit folgenden Einstellungen
 ```
 latexmk -synctex=1 -interaction=nonstopmode -file-line-error -xelatex example.tex
 ```
-wobei die meisten der Argumente von meiner IDE generiert wurden und einige vermutlich nicht zwingend nötig sind. Entscheidend ist auf jeden fall `-xelatex`. Statt `latexmk` funktioniert vermutlich auch die Abfolge (ich habe es aber nicht getestet)
+wobei die meisten der Argumente von meiner IDE generiert wurden und einige vermutlich nicht zwingend nötig sind. Entscheidend ist auf jeden fall `-xelatex`. Statt `latexmk` funktioniert vermutlich auch die Abfolge.
 ```
 xelatex
 biblatex
 xelatex
 xelatex
 ```
+Auf Overleaf reicht es aus, als Compiler XeLaTeX einzustellen.
 
 ## Griechisch und Hebräisch
 Griechisch und Hebräisch lassen sich auf 2 Arten nutzen:

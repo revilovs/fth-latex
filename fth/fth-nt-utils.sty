@@ -1,0 +1,108 @@
+% Autor: Oliver von Seydlitz
+\ProvidesPackage{fth-nt-utils}[2024/02/28 Tools für die Arbeit mit neutestamentlichen Texten, vor allem im NT-Seminar]
+
+\IfPackageLoadedTF{fth-lang}{}{
+    \PackageError{fth-nt-utils}{fth-nt-utils needs fth-lang!}{}%
+}
+
+\makeatletter
+
+\RequirePackage{multirow} % Für Textkritik-Tabellen
+\RequirePackage{amsfonts} % Für die Symbole für Mehrheitstext und Papyri
+\RequirePackage{ulem}     % Für synoptische Vergleiche
+\RequirePackage{xcolor}   % Für synoptische Vergleiche
+
+% ==================
+% Kleinere Befehle *
+% ==================
+
+% Symbol für Nestle-Aland 28
+\newcommand{\na}{NA\textsuperscript{28}}
+% Symbol für Mehrheitstext
+\newcommand{\majoritytext}{$\mathfrak{M}$}
+% Symbol für Septuaginta
+\newcommand{\lxx}{$\mathfrak{S}$}
+% Befehl für Textzeugen mit hochgestelltem Symbol (Papyri oder Korrekturen von Majuskeln)
+\newcommand{\witness}[2]{#1\textsuperscript{#2}}
+% Befehl für Papyri
+\newcommand{\papyrus}[1]{\witness{$\mathfrak{P}$}{#1}}
+% Befehl für Textzeugen mit Jahrhundert und Qualität (Format wie im NT-Seminar vorgegeben)
+\newcommand{\witnesscat}[3]{#1\textsubscript{#2}#3}
+
+% ==================================================
+% Textkritische Symbole mit der Schriftart SBL Greek *
+% ==================================================
+\newcommand{\tcReplacement}{\grk{⸀}}
+\newcommand{\tcReplacementStart}{\grk{⸂}}
+\newcommand{\tcReplacementEnd}{\grk{⸃}}
+\newcommand{\tcInsertion}{\grk{⸆}}
+\newcommand{\tcOmission}{\grk{°}}
+\newcommand{\tcRepositioningStart}{\grk{⸉}}
+\newcommand{\tcRepositioningEnd}{\grk{⸊}}
+\newcommand{\tcOmissionStart}{\grk{⸋}}
+\newcommand{\tcOmissionEnd}{\grk{⸌}}
+\newcommand{\tcInterpunctionVariant}{\grk{\textsuperscript{:}}}
+\newcommand{\tcUnsureStart}{\grk{[}}
+\newcommand{\tcUnsureEnd}{\grk{]}}
+\newcommand{\tcEarlyInsertionStart}{\grk{⟦}}
+\newcommand{\tcEarlyInsertioneEnd}{\grk{⟧}}
+
+% =================================================================
+% Tabelle für Textvarianten (Format wie im NT-Seminar vorgegeben) *
+% =================================================================
+\newcommand{\witnesscolwidth}{\ifdefined\@lecturenotes 11.8cm \else\ifdefined\@bound 8.3cm \else 9.8cm \fi\fi}
+
+\newenvironment{textvarianttable}{
+    \begin{tabular}{| p{2cm} | p{\witnesscolwidth} | p{2cm} |}
+        \hline
+        \textbf{Variante} & \textbf{Zeugen} & \textbf{Art der Zeugen} \\
+        \hline
+}{
+    \end{tabular}
+}
+
+\newcommand{\textvariant}[6]{
+    \multirow{5}{*}{\parbox{2cm}{#1}} & #2 & Pap. \\
+    & #3 & Maj. \\
+    & #4 & Min. \\
+    & #5 & Üb. \\
+    & #6 & KiVä. \\
+    \hline
+}
+
+% ==========================================================================
+% Tabelle für synoptischen Vergleich (Format wie im NT-Seminar vorgegeben) *
+% ==========================================================================
+\newcommand{\synopticcolwidth}{\ifdefined\@lecturenotes 5.27cm \else\ifdefined\@bound 4.1cm \else 4.6cm \fi\fi}
+
+\newenvironment{synopticcomparisontable}[3]{
+    \begin{tabular}{| p{\synopticcolwidth} | p{\synopticcolwidth} | p{\synopticcolwidth} |}
+        \hline
+        \textbf{#1} & \textbf{#2} & \textbf{#3} \\
+        \hline
+}{
+    \hline
+    \end{tabular}
+}
+
+\newcommand{\synopticentry}[3]{
+    #1 & #2 & #3 \\
+}
+
+\newcommand{\synspecial}[1]{\dashuline{#1}}
+
+\newcommand\synall{\bgroup\markoverwith
+      {\textcolor{blue}{\rule[-0.5ex]{2pt}{1pt}}}\ULon}
+
+\newcommand\synmtmk{\bgroup\markoverwith
+      {\textcolor{red}{\rule[-0.5ex]{2pt}{1pt}}}\ULon}
+
+\newcommand\synmklk{\bgroup\markoverwith
+      {\textcolor{green}{\rule[-0.5ex]{2pt}{1pt}}}\ULon}
+
+\newcommand\synmtlk{\bgroup\markoverwith
+      {\textcolor{yellow}{\rule[-0.5ex]{2pt}{1pt}}}\ULon}
+
+
+
+\makeatother
