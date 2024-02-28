@@ -1,9 +1,12 @@
 % Autor: Oliver von Seydlitz
 \ProvidesPackage{fth-nt-utils}[2024/02/28 Tools für die Arbeit mit neutestamentlichen Texten, vor allem im NT-Seminar]
 
+\IfPackageLoadedTF{fth-lang}{}{
+    \PackageError{fth-nt-utils}{fth-nt-utils needs fth-lang!}{}%
+}
+
 
 \RequirePackage{multirow} % Für Textkritik-Tabellen
-\RequirePackage{fontspec} % Für textkritische Symbole
 \RequirePackage{amsfonts} % Für die Symbole für Mehrheitstext und Papyri
 \RequirePackage{ulem}     % Für synoptische Vergleiche
 \RequirePackage{xcolor}   % Für synoptische Vergleiche
