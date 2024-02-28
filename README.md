@@ -40,8 +40,10 @@ xelatex
 xelatex
 ```
 
-## Was das Paket (noch) nicht kann
-Hebräisch. Griechisch kann man ganz einfach als UTF-8 schreiben und sollte korrekt angezeigt werden. Hebräisch geht noch nicht. Dafür muss ich wohl von `babel` auf `polyglossia` umstellen, damit kenne ich mich aber noch nicht aus.
+## Griechisch und Hebräisch
+Griechisch und Hebräisch lassen sich auf 2 Arten nutzen:
+- Der Default-Font aus dem Pekt `fth-lsa` enthält die meisten Zeichen beider Sprachen, allerdings können masoretische Akzente nicht dargestellt werden. Verwendet man keine masoretischen Akzente, kann man ganz einfach Griechisch und Hebräisch in Unicode tippen und es sollte problemlos angezeigt werden.
+- Alternativ verwendet man das Paket `fth-lang`, das mit `polyglossia` und `fontspec` die Fonts [SBL Hebrew](https://www.sbl-site.org/educational/BiblicalFonts_SBLHebrew.aspx) und [SBL Greek](https://www.sbl-site.org/educational/BiblicalFonts_SBLGreek.aspx) einstellt, die mit `\heb{עִבְרִית}` und `\grk{κοινὴ}` verfügbar sind. Die beiden Fonts müssen auf dem System installiert oder im lokalen Verzeichnis abgelegt sein.
 
 ## Anmerkung zu Bibelstellen
 Die FTH-Leitlinien fordern zwar eine Fomrattierung entsprechend den Loccumer Richtlinien, die in Abschnitt 6.1 der Leitlinien angegebenen Abkürzungen entsprechen allerdings gar nicht den Loccumer Richtlinien (das Buch 1.Mose müsste z.B. Gen abgekürzt werden, nicht 1Mose). Bei Benutzung von \bibleverse formattiert das Paket fth-lsa Bibelstellen korrekt entsprechend den echten Loccumer Richtlinien, nicht jedoch wie in 6.1 der FTH-Leitlinien. Wem das zu riskant ist, kann die Option `tre` verwenden, die stattdessen entsprechend der TRE formattiert, was die FTH-Leitlinien ebenfalls erlauben.
