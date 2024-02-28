@@ -37,6 +37,8 @@
 \newcommand{\tcOmission}{{\textcrit °}}
 \newcommand{\tcRepositioningStart}{{\textcrit ⸉}}
 \newcommand{\tcRepositioningEnd}{{\textcrit ⸊}}
+\newcommand{\tcOmissionStart}{{\textcrit ⸋}}
+\newcommand{\tcOmissionEnd}{{\textcrit ⸌}}
 \newcommand{\tcInterpunctionVariant}{{\textcrit \textsuperscript{:}}}
 \newcommand{\tcUnsureStart}{{\textcrit [}}
 \newcommand{\tcUnsureEnd}{{\textcrit ]}}
@@ -49,7 +51,7 @@
 \newenvironment{textvarianttable}{
     \begin{tabular}{| p{2cm} | p{11cm} | p{2cm} |}
         \hline
-        \emph{Variante} & \emph{Zeugen} & \emph{Art der Zeugen} \\
+        \textbf{Variante} & \textbf{Zeugen} & \textbf{Art der Zeugen} \\
         \hline
 }{
     \end{tabular}
@@ -70,7 +72,7 @@
 \newenvironment{synopticcomparisontable}[3]{
     \begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
         \hline
-        \emph{#1} & \emph{#2} & \emph{#3} \\
+        \textbf{#1} & \textbf{#2} & \textbf{#3} \\
         \hline
 }{
     \hline
