@@ -34,17 +34,17 @@
 
 % Zunächst wird versucht, den Font über das System zu laden, andernfalls wird lokal nach einer passenden Datei gesucht (z.B. bei Overleaf nötig)
 \IfFontExistsTF{SBL Greek}{
-	\newfontfamily{\greekfont}{SBL Greek}
-	\newfontfamily{\greekfontsf}{SBL Greek}
+	\newfontfamily{\greekfont}{SBL Greek}[AutoFakeBold=5,AutoFakeSlant=0.2]
+	\newfontfamily{\greekfontsf}{SBL Greek}[AutoFakeBold=5,AutoFakeSlant=0.2]
 }{
-	\newfontfamily{\greekfont}{SBL_grk.ttf}
-	\newfontfamily{\greekfontsf}{SBL_grk.ttf}
+	\newfontfamily{\greekfont}{SBL_grk.ttf}[AutoFakeBold=5,AutoFakeSlant=0.2]
+	\newfontfamily{\greekfontsf}{SBL_grk.ttf}[AutoFakeBold=5,AutoFakeSlant=0.2]
 }
 \IfFontExistsTF{SBL Hebrew}{
-	\newfontfamily{\hebrewfont}{SBL Hebrew}
-	\newfontfamily{\hebrewfontsf}{SBL Hebrew}
+	\newfontfamily{\hebrewfont}{SBL Hebrew}[AutoFakeBold=3]
+	\newfontfamily{\hebrewfontsf}{SBL Hebrew}[AutoFakeBold=3]
 }{
-	\newfontfamily{\hebrewfont}{SBL_Hbrw.ttf}
-	\newfontfamily{\hebrewfontsf}{SBL_Hbrw.ttf}
+	\newfontfamily{\hebrewfont}{SBL_Hbrw.ttf}[AutoFakeBold=3]
+	\newfontfamily{\hebrewfontsf}{SBL_Hbrw.ttf}[AutoFakeBold=3]
 }
 
