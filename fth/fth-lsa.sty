@@ -202,7 +202,7 @@
 % ======================================
 % Text für Selbstständigkeitserklärung *
 % ======================================
-\newcommand{\statementofauthorship}{%
+\newcommand{\statementofauthorship}[1][\@date{}]{%
 \ifdefined\chapter\chapter*{Selbstständigkeitserklärung}%
 \else\section*{Selbstständigkeitserklärung}%
 \fi%
@@ -210,7 +210,7 @@ Hiermit bestätige ich, dass ich die vorliegende Arbeit selbständig verfasst un
 \strut\\%
 \strut\\%
 \strut\\%
-\@date{}\strut\\%
+#1\strut\\%
 }
 
 
