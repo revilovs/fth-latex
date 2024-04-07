@@ -1,10 +1,14 @@
 % Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH: Nutzung der Sprachen Griechisch und Hebräisch
 % Autor: Micha Piertzik
-\ProvidesPackage{fth-lang}[2024/02/28 Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH Gießen: Nutzung der Sprachen Griechisch und Hebräisch]
+\ProvidesPackage{fth-lang}[2024/02/28 Umsetzung der Leitlinien für schrifliche Arbeiten an der FTH Gießen: Nutzung der Sprachen Griechisch, Hebräisch und Aramäisch]
 
 % Es wird vorausgesetzt, dass die Fonts "SBL Hebrew" und "SBL Greek" istalliert sind! Download:
 %   https://www.sbl-site.org/educational/BiblicalFonts_SBLHebrew.aspx
 %   https://www.sbl-site.org/educational/BiblicalFonts_SBLGreek.aspx
+%
+% Aramäisch kann ohne Probleme als Hebärisch geschrieben werden.
+% Nur wenn babylonisch Punktation verwendet werden soll, muss der Befehl \tgaram{} verwendet werden.
+% Voraussetzung dafür ist aber, dass EzraBab installiert ist, eine Schriftart, die aktuell meines Wissens nicht frei zugänglich ist.
 
 % ===========================================================
 % Diese Pakete werden von anderen FTH-Pakten gebraucht,     *
@@ -23,8 +27,10 @@
 \setotherlanguage[variant=american]{english}
 \setotherlanguage[variant=ancient]{greek}
 \setotherlanguage{hebrew}
+\setotherlanguage{syriac}
 \newcommand{\heb}[1]{\texthebrew{#1}}
 \newcommand{\grk}[1]{\textgreek{#1}}
+\newcommand{\tgaram}[1]{\textsyriac{#1}}
 
 
 % ========================
@@ -47,4 +53,14 @@
 	\newfontfamily{\hebrewfont}{SBL_Hbrw.ttf}[AutoFakeBold=3]
 	\newfontfamily{\hebrewfontsf}{SBL_Hbrw.ttf}[AutoFakeBold=3]
 }
+\IfFontExistsTF{EzraBab}{
+	\newfontfamily{\syriacfont}{EzraBab}
+	\newfontfamily{\syriacfontsf}{EzraBab}
+}{
+	\IfFontExistsTF{EzraBab.ttf}{
+		\newfontfamily{\syriacfont}{EzraBab.ttf}
+		\newfontfamily{\syriacfontsf}{EzraBab.ttf}
+	}{}
+}
+
 
