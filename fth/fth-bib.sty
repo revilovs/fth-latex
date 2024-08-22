@@ -152,6 +152,17 @@ maxnames=2]{biblatex}
     \usebibmacro{finentry}
 }
 
+\DeclareBibliographyDriver{report}{%
+    \usebibmacro{bibindex}%
+    \usebibmacro{begentry}%
+    \usebibmacro{author/editor}%
+    \usebibmacro{title+volume+series}%
+    \printorigdate%
+    \newunit\newblock%
+    \usebibmacro{edition+location+year}
+    \usebibmacro{finentry}
+}
+
 \DeclareBibliographyDriver{article}{%
     \usebibmacro{bibindex}%
     \usebibmacro{begentry}%
