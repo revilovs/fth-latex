@@ -28,9 +28,15 @@
 \setotherlanguage[variant=ancient]{greek}
 \setotherlanguage{hebrew}
 \setotherlanguage{syriac}
+
+% Aramaic is not supported by polyglossia, so it needs to be set up as a custom language
+\setotherlanguage{targumaramaic}
+\PolyglossiaSetup{targumaramaic}{direction=RL}
+
 \newcommand{\heb}[1]{\texthebrew{#1}}
 \newcommand{\grk}[1]{\textgreek{#1}}
-\newcommand{\tgaram}[1]{\textsyriac{#1}}
+\newcommand{\syr}[1]{\textsyriac{#1}}
+\newcommand{\tgaram}[1]{\texttargumaramaic{#1}}
 
 
 % ========================
@@ -54,12 +60,21 @@
 	\newfontfamily{\hebrewfontsf}{SBL_Hbrw.ttf}[AutoFakeBold=3]
 }
 \IfFontExistsTF{EzraBab}{
-	\newfontfamily{\syriacfont}{EzraBab}
-	\newfontfamily{\syriacfontsf}{EzraBab}
+	\newfontfamily{\targumaramaicfont}{EzraBab}
+	\newfontfamily{\targumaramaicfontsf}{EzraBab}
 }{
 	\IfFontExistsTF{EzraBab.ttf}{
-		\newfontfamily{\syriacfont}{EzraBab.ttf}
-		\newfontfamily{\syriacfontsf}{EzraBab.ttf}
+		\newfontfamily{\targumaramaicfont}{EzraBab.ttf}
+		\newfontfamily{\targumaramaicfontsf}{EzraBab.ttf}
+	}{}
+}
+\IfFontExistsTF{Estrangelo Edessa}{
+	\newfontfamily{\syriacfont}{Estrangelo Edessa}
+	\newfontfamily{\syriacfontsf}{Estrangelo Edessa}
+}{
+	\IfFontExistsTF{estre.ttf}{
+		\newfontfamily{\syriacfont}{estre.ttf}
+		\newfontfamily{\syriacfontsf}{estre.ttf}
 	}{}
 }
 
