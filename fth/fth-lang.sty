@@ -19,63 +19,107 @@
 \RequirePackage{hyperref}
 \RequirePackage{xcolor}
 
-% ======================
-% Sprachen-Einstellung *
-% ======================
+% ===========================================================
+% Optionen des Pakets zum Ein- und Ausschalten von Sprachen *
+% ===========================================================
+% Paket um Optionen auszuwerten
+\RequirePackage{xkeyval}
+
+% Deklaration der Variablen für Griechisch, Hebräisch, Targum-Aramäisch und Syrisch
+\newif\ifheb
+\newif\ifgrk
+\newif\iftgaram
+\newif\ifsyr
+
+% Default-Werte: Griechisch und Hebräisch an, Aramäisch und Syrisch aus
+\hebtrue
+\grktrue
+\tgaramfalse
+\syrfalse
+
+% Verarbeitung der Optionen
+\DeclareOptionX{heb}[true]{\csname heb#1\endcsname}
+\DeclareOptionX{grk}[true]{\csname grk#1\endcsname}
+\DeclareOptionX{tgaram}[false]{\csname tgaram#1\endcsname}
+\DeclareOptionX{syr}[false]{\csname syr#1\endcsname}
+
+\ProcessOptionsX
+
+
+% ====================================
+% Sprachen-Einstellung (inkl. Fonts) *
+% ====================================
 \RequirePackage{polyglossia}
-\setmainlanguage{german}
-\setotherlanguage[variant=american]{english}
-\setotherlanguage[variant=ancient]{greek}
-\setotherlanguage{hebrew}
-\setotherlanguage{syriac}
-
-% Aramaic is not supported by polyglossia, so it needs to be set up as a custom language
-\setotherlanguage{targumaramaic}
-\PolyglossiaSetup{targumaramaic}{direction=RL}
-
-\newcommand{\heb}[1]{\texthebrew{#1}}
-\newcommand{\grk}[1]{\textgreek{#1}}
-\newcommand{\syr}[1]{\textsyriac{#1}}
-\newcommand{\tgaram}[1]{\texttargumaramaic{#1}}
-
-
-% ========================
-% Fonts für die Sprachen *
-% ========================
 \RequirePackage{fontspec}
 
-% Zunächst wird versucht, den Font über das System zu laden, andernfalls wird lokal nach einer passenden Datei gesucht (z.B. bei Overleaf nötig)
-\IfFontExistsTF{SBL Greek}{
-	\newfontfamily{\greekfont}{SBL Greek}[AutoFakeBold=5,AutoFakeSlant=0.2]
-	\newfontfamily{\greekfontsf}{SBL Greek}[AutoFakeBold=5,AutoFakeSlant=0.2]
-}{
-	\newfontfamily{\greekfont}{SBL_grk.ttf}[AutoFakeBold=5,AutoFakeSlant=0.2]
-	\newfontfamily{\greekfontsf}{SBL_grk.ttf}[AutoFakeBold=5,AutoFakeSlant=0.2]
-}
-\IfFontExistsTF{SBL Hebrew}{
-	\newfontfamily{\hebrewfont}{SBL Hebrew}[AutoFakeBold=3]
-	\newfontfamily{\hebrewfontsf}{SBL Hebrew}[AutoFakeBold=3]
-}{
-	\newfontfamily{\hebrewfont}{SBL_Hbrw.ttf}[AutoFakeBold=3]
-	\newfontfamily{\hebrewfontsf}{SBL_Hbrw.ttf}[AutoFakeBold=3]
-}
-\IfFontExistsTF{EzraBab}{
-	\newfontfamily{\targumaramaicfont}{EzraBab}
-	\newfontfamily{\targumaramaicfontsf}{EzraBab}
-}{
-	\IfFontExistsTF{EzraBab.ttf}{
-		\newfontfamily{\targumaramaicfont}{EzraBab.ttf}
-		\newfontfamily{\targumaramaicfontsf}{EzraBab.ttf}
-	}{}
-}
-\IfFontExistsTF{Estrangelo Edessa}{
-	\newfontfamily{\syriacfont}{Estrangelo Edessa}
-	\newfontfamily{\syriacfontsf}{Estrangelo Edessa}
-}{
-	\IfFontExistsTF{estre.ttf}{
-		\newfontfamily{\syriacfont}{estre.ttf}
-		\newfontfamily{\syriacfontsf}{estre.ttf}
-	}{}
-}
+% Deutsch und Englisch werden immer geladen
+% TODO: Package-Option, Englisch als mainlanguage einzustellen
+\setmainlanguage{german}
+\setotherlanguage[variant=american]{english}
 
+% Beim Laden der Fonts wird zunächst versucht, den Font über das System zu laden
+% Andernfalls wird lokal nach einer passenden Datei gesucht (z.B. bei Overleaf nötig)
+
+\ifgrk
+	\setotherlanguage[variant=ancient]{greek}
+
+	\IfFontExistsTF{SBL Greek}{
+		\newfontfamily{\greekfont}{SBL Greek}[AutoFakeBold=5,AutoFakeSlant=0.2]
+		\newfontfamily{\greekfontsf}{SBL Greek}[AutoFakeBold=5,AutoFakeSlant=0.2]
+	}{
+		\newfontfamily{\greekfont}{SBL_grk.ttf}[AutoFakeBold=5,AutoFakeSlant=0.2]
+		\newfontfamily{\greekfontsf}{SBL_grk.ttf}[AutoFakeBold=5,AutoFakeSlant=0.2]
+	}
+
+	\newcommand{\grk}[1]{\textgreek{#1}}
+\fi
+
+\ifheb
+	\setotherlanguage{hebrew}
+
+	\IfFontExistsTF{SBL Hebrew}{
+		\newfontfamily{\hebrewfont}{SBL Hebrew}[AutoFakeBold=3]
+		\newfontfamily{\hebrewfontsf}{SBL Hebrew}[AutoFakeBold=3]
+	}{
+		\newfontfamily{\hebrewfont}{SBL_Hbrw.ttf}[AutoFakeBold=3]
+		\newfontfamily{\hebrewfontsf}{SBL_Hbrw.ttf}[AutoFakeBold=3]
+	}
+
+	\newcommand{\heb}[1]{\texthebrew{#1}}
+\fi
+
+
+\iftgaram
+	% Aramaic is not supported by polyglossia, so it needs to be set up as a custom language
+	\setotherlanguage{targumaramaic}
+	\PolyglossiaSetup{targumaramaic}{direction=RL}
+
+	\IfFontExistsTF{EzraBab}{
+		\newfontfamily{\targumaramaicfont}{EzraBab}
+		\newfontfamily{\targumaramaicfontsf}{EzraBab}
+	}{
+		\IfFontExistsTF{EzraBab.ttf}{
+			\newfontfamily{\targumaramaicfont}{EzraBab.ttf}
+			\newfontfamily{\targumaramaicfontsf}{EzraBab.ttf}
+		}{}
+	}
+
+	\newcommand{\tgaram}[1]{\texttargumaramaic{#1}}
+\fi
+
+\ifsyr
+	\setotherlanguage{syriac}
+
+	\IfFontExistsTF{Estrangelo Edessa}{
+		\newfontfamily{\syriacfont}{Estrangelo Edessa}
+		\newfontfamily{\syriacfontsf}{Estrangelo Edessa}
+	}{
+		\IfFontExistsTF{estre.ttf}{
+			\newfontfamily{\syriacfont}{estre.ttf}
+			\newfontfamily{\syriacfontsf}{estre.ttf}
+		}{}
+	}
+
+	\newcommand{\syr}[1]{\textsyriac{#1}}
+\fi
 

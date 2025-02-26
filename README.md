@@ -17,11 +17,11 @@ Wenn das mit `TEXMFHOME` nicht funktioniert, kann man die `.sty`-Dateien auch ei
 ## Abhängigkeiten
 Die Pakete `fth-lsa` und `fth-bib` sollten mit einer Standard-LaTeX-2e-Installation problemlos funktionieren.
 
-Das Paket `fth-lang` (und `fth-nt-utils`, das `fth-lang` benötigt) benötigt die Fonts [SBL Hebrew](https://www.sbl-site.org/educational/BiblicalFonts_SBLHebrew.aspx) und [SBL Greek](https://www.sbl-site.org/educational/BiblicalFonts_SBLGreek.aspx), die unter den verlinkten Seiten heruntergeladen werden können. Die Fonts müssen ganz normal auf dem System installiert werden oder alternativ (bspw. auf Overleaf) als TTF-Datei im lokalen Verzeichnis abgelegt werden.
+Das Paket `fth-lang` (und `fth-nt-utils`, das `fth-lang` benötigt) benötigt bestimmte Fonts, siehe dazu unten.
 
 ## Pakete und Verwendung
 Das Repository stellt verschiedene Pakete zur Verfügung. Es sollten nur diejenigen, die wirklich benötigt werden, verwendet werden:
-- `fth-lang` konfiguriert die Verwendung passender Fonts für Griechisch und Hebräisch. Es sollte als erstes geladen werden.
+- `fth-lang` konfiguriert die Verwendung passender Fonts für Griechisch, Hebräisch und bei Bedarf Targum-Aramäisch und Syrisch. Es sollte als erstes geladen werden.
 - `fth-lsa` setzt die Formattierungs-Richtlinien aus den Leitlinien für schriftliche Arbeiten an der FTH (ohne Zitate) um.
 - `fth-bib` setzt die Richtlinien zur Formattierung von Zitaten und Literaturverzeichnis um.
 - `fth-nt-utils` stellt einige hilfreiche Befehle zur Arbeit mit neutestamentlichen Texten zur Verfügung, z.B. für Textkritik oder synoptische Vergleiche.
@@ -47,7 +47,11 @@ Griechisch und Hebräisch lassen sich auf 2 Arten nutzen:
 - Der Default-Font aus dem Pekt `fth-lsa` enthält die meisten Zeichen beider Sprachen, allerdings können masoretische Akzente nicht dargestellt werden. Verwendet man keine masoretischen Akzente, kann man ganz einfach Griechisch und Hebräisch in Unicode tippen und es sollte problemlos angezeigt werden.
 - Alternativ verwendet man das Paket `fth-lang`, das mit `polyglossia` und `fontspec` die Fonts [SBL Hebrew](https://www.sbl-site.org/educational/BiblicalFonts_SBLHebrew.aspx) und [SBL Greek](https://www.sbl-site.org/educational/BiblicalFonts_SBLGreek.aspx) einstellt, die mit `\heb{עִבְרִית}` und `\grk{κοινὴ}` verfügbar sind. Die beiden Fonts müssen auf dem System installiert oder im lokalen Verzeichnis abgelegt sein.
 
-Aramäisch kann im Normalfall wie hebräisch verwendet werden. Will man aber babylonische Punktierung verwenden (etwa für Targum-Aramäisch), muss die Schriftart `EzraBab` auf dem System installiert sein oder als `EzraBab.ttf` im selben Verzeichnis liegen. Leider ist die Schriftart aktuell nicht frei zugänglich. Das ganze sieht dann im Code so aus: \tgaram{א֘ד֘ם} und wird im PDF mit den korrekten Vokalzeichen gerendert.
+Aramäisch kann im Normalfall wie hebräisch verwendet werden. Will man aber babylonische Punktierung verwenden (etwa für Targum-Aramäisch), muss die Schriftart `EzraBab` auf dem System installiert sein oder als `EzraBab.ttf` im selben Verzeichnis liegen. Leider ist die Schriftart aktuell nicht frei zugänglich. Das ganze sieht dann im Code so aus: `\tgaram{א֘ד֘ם}` und wird im PDF mit den korrekten Vokalzeichen gerendert.
+
+Außerdem kann optional Syrisch verwendet werden. Dazu muss die Schriftart `Estrangelo Edessa` installiert sein oder als `estre.ttf` bereit liegen. Verwendet wird die Sprache dann mit `\syr{ܫܪ̈ܒܬܗܘܢ}`.
+
+Um Kompilierzeit beim Suchen der Fonts zu sparen, sind Aramäisch und Syrisch per Default deaktiviert. Sie können beim Laden des Pakets mit `\usepackage[syr=true,tgaram]{fth-lang}` aktiviert werden. Wenn Griechisch und Hebräisch nicht benötigt werden, können sie analog mit `\usepackage[grk=false,heb=false]{fth-lang}` deaktiviert werden.
 
 ## Anmerkung zu Bibelstellen
 Die FTH-Leitlinien fordern zwar eine Fomrattierung entsprechend den Loccumer Richtlinien, die in Abschnitt 6.1 der Leitlinien angegebenen Abkürzungen entsprechen allerdings gar nicht den Loccumer Richtlinien (das Buch 1.Mose müsste z.B. Gen abgekürzt werden, nicht 1Mose). Bei Benutzung von \bibleverse formattiert das Paket fth-lsa Bibelstellen korrekt entsprechend den echten Loccumer Richtlinien, nicht jedoch wie in 6.1 der FTH-Leitlinien. Wem das zu riskant ist, kann die Option `tre` verwenden, die stattdessen entsprechend der TRE formattiert, was die FTH-Leitlinien ebenfalls erlauben.
