@@ -51,7 +51,7 @@ Aramäisch kann im Normalfall wie hebräisch verwendet werden. Will man aber bab
 
 Außerdem kann optional Syrisch verwendet werden. Dazu muss die Schriftart `Estrangelo Edessa` installiert sein oder als `estre.ttf` bereit liegen. Verwendet wird die Sprache dann mit `\syr{ܫܪ̈ܒܬܗܘܢ}`.
 
-Um Kompilierzeit beim Suchen der Fonts zu sparen, sind Aramäisch und Syrisch per Default deaktiviert. Sie können beim Laden des Pakets mit `\usepackage[syr=true,tgaram]{fth-lang}` aktiviert werden. Wenn Griechisch und Hebräisch nicht benötigt werden, können sie analog mit `\usepackage[grk=false,heb=false]{fth-lang}` deaktiviert werden.
+Um Kompilierzeit beim Suchen der Fonts zu sparen, sind Aramäisch und Syrisch per Default deaktiviert. Sie können beim Laden des Pakets mit `\usepackage[syr=true,tgaram=true]{fth-lang}` aktiviert werden. Wenn Griechisch und Hebräisch nicht benötigt werden, können sie analog mit `\usepackage[grk=false,heb=false]{fth-lang}` deaktiviert werden.
 
 ## Anmerkung zu Bibelstellen
 Die FTH-Leitlinien fordern zwar eine Fomrattierung entsprechend den Loccumer Richtlinien, die in Abschnitt 6.1 der Leitlinien angegebenen Abkürzungen entsprechen allerdings gar nicht den Loccumer Richtlinien (das Buch 1.Mose müsste z.B. Gen abgekürzt werden, nicht 1Mose). Bei Benutzung von \bibleverse formattiert das Paket fth-lsa Bibelstellen korrekt entsprechend den echten Loccumer Richtlinien, nicht jedoch wie in 6.1 der FTH-Leitlinien. Wem das zu riskant ist, kann die Option `tre` verwenden, die stattdessen entsprechend der TRE formattiert, was die FTH-Leitlinien ebenfalls erlauben.
