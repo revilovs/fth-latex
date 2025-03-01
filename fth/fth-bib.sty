@@ -8,6 +8,7 @@
 % Variablen für Optionen *
 % ========================
 \DeclareOption{authorsc}{\def\@authorsc{}}
+\DeclareOption{fin=dot}{\def\@finDot{}}
 \ProcessOptions\relax
 
 \RequirePackage[style=verbose-ibid,
@@ -37,12 +38,16 @@ maxnames=2]{biblatex}
 \DeclareFieldFormat{pages}{#1}	% keine "S."-Angaben
 \DeclareFieldFormat{postnote}{#1}	% keine "S."-Angaben
 \renewcommand{\newunitpunct}{\addcomma\space}
-\renewbibmacro*{finentry}{}
 
 % Autoren bei \citeauthor in Small caps, wenn Option gesetzt
 \ifdefined\@authorsc
   \renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
   \renewcommand*{\mkbibnameprefix}[1]{\textsc{#1}}
+\fi
+
+\ifdefined\@finDot
+\else
+  \renewbibmacro*{finentry}{}
 \fi
 
 \DeclareFieldFormat*{title}{#1}             % Format for bibliography
