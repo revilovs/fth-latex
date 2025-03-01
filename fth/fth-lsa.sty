@@ -16,6 +16,7 @@
 % ========================
 \DeclareOption{bound}{\def\@bound{}}
 \DeclareOption{thesis}{\def\@thesis{}}
+\DeclareOption{set-institution}{\def\@setinstitution{}}
 \DeclareOption{tre}{\def\@tre{}}
 \DeclareOption{title-style=sc}{\def\@titlesc{}}
 \DeclareOption{lecture-notes}{\def\@lecturenotes{}}
@@ -125,6 +126,14 @@
 \newcommand{\wordcount}[1]{\gdef\@wordcount{#1}}
 \newcommand{\submissionplace}[1]{\gdef\@submissionplace{#1}}
 
+% Mache Institution konfigurierbar, wenn Option set-institution gesetzt ist. Ansonsten FTH
+\ifdefined\@setinstitution
+    \newcommand{\institution}[1]{\gdef\@institution{#1}}
+\else
+    \gdef\@institution{Freie Theologische Hochschule Gießen}
+\fi
+
+
 \renewcommand*{\maketitle}{
 \begin{titlepage}
     \begin{center}
@@ -158,7 +167,7 @@
             \@thesistype{}\strut\\%
             \ifdefined\@department Vorgelegt in der Abteilung \@department{}\strut\\ \fi%
             \strut\\%
-            Freie Theologische Hochschule Gießen \\%
+            \@institution{} \\%
             \strut\\%
             \strut\\%
             \ifdefined\@referee Erstgutachter: \@referee{} \\ \fi%
@@ -175,7 +184,7 @@
             \fi%
             %
             \ifdefined\@module Modul: \@module{}\strut \\\fi%
-            Freie Theologische Hochschule Gießen \\%
+            \@institution{} \\%
             \ifdefined\@semester \@semester{}\strut \\\fi%
             \ifdefined\@lecturer \@lecturer{}\strut \\\fi%
             %
