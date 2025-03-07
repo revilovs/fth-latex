@@ -230,6 +230,19 @@ maxnames=2]{biblatex}
     {}%
   \usebibmacro{finentry}}
 
+\DeclareBibliographyDriver{online}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \newunit\newblock
+  \printfield{title}%
+  \newunit\newblock
+  \printfield{url}%
+  \setunit{\addspace}
+  \usebibmacro{urldate}
+  \usebibmacro{finentry}
+}
+
 \DeclareBibliographyDriver{collection}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
