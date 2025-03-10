@@ -61,7 +61,8 @@ maxnames=2]{biblatex}
 %   urlfrom = {online unter},
 }
 
-%\DeclareFieldFormat{url}{\mbox{\url{#1}}}
+% disable "URL:" Prefix to url in @online
+\DeclareFieldFormat{url}{\url{#1}}
 \appto{\biburlsetup}{\renewcommand*{\UrlFont}{\normalfont\itshape}}
 
 \renewbibmacro*{publisher+location+date}{%
@@ -229,6 +230,19 @@ maxnames=2]{biblatex}
      \usebibmacro{related}}
     {}%
   \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{online}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \newunit\newblock
+  \printfield{title}%
+  \newunit\newblock
+  \printfield{url}%
+  \setunit*{\addspace}
+  \usebibmacro{urldate}
+  \usebibmacro{finentry}
+}
 
 \DeclareBibliographyDriver{collection}{%
   \usebibmacro{bibindex}%
