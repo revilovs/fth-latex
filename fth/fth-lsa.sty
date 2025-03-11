@@ -97,8 +97,36 @@
 % entsprechend den echten Loccumer Richtlinien, nicht jedoch wie in 6.1 der FTH-Leitlinien. Wem
 % das zu riskant ist, kann die Option tre verwenden, die stattdessen entsprechend der TRE formattiert,
 % was die FTH-Leitlinien ebenfalls erlauben.
-\ifdefined\@tre\biblerefstyle{TRE}\fi
-\biblerefformat{kurz}
+
+\newbiblerefstyle{fth-short}{%
+    % Der Großteil der Einstellungen kann von der EÜ (entspricht Loccumer Richtlinien) übernommen werden
+    \biblerefstyle{Einheitsuebersetzung}%
+    \biblerefformat{kurz}%
+    % Diese Bücher sind in den FTH-Leitlinien anders bezeichnet als in den gängigen Versionen der Loccumer Richtlinien
+    \setbooktitle{Job}{Hi}%
+    \setbooktitle{Ecclesiastes}{Pred}%
+    \setbooktitle{Ezekiel}{Hes}%
+    \setbooktitle{Joel}{Joel}%
+}
+
+\newbiblerefstyle{fth-long}{%
+    % Der Großteil der Einstellungen kann von der EÜ (entspricht Loccumer Richtlinien) übernommen werden
+    \biblerefstyle{Einheitsuebersetzung}%
+    \biblerefformat{lang}%
+    % Diese Bücher sind in den FTH-Leitlinien anders bezeichnet als in den gängigen Versionen der Loccumer Richtlinien
+    \setbooktitle{Job}{Hiob}%
+    \setbooktitle{Ecclesiastes}{Prediger}%
+    \setbooktitle{Ezekiel}{Hesekiel}%
+    \setbooktitle{Joel}{Joel}%
+}
+
+\ifdefined\@tre%
+    \biblerefstyle{TRE}
+    \biblerefformat{kurz}
+\else
+    \biblerefstyle{fth-short}
+\fi
+
 
 
 % =================================================

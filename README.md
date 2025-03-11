@@ -54,7 +54,11 @@ Außerdem kann optional Syrisch verwendet werden. Dazu muss die Schriftart `Estr
 Um Kompilierzeit beim Suchen der Fonts zu sparen, sind Aramäisch und Syrisch per Default deaktiviert. Sie können beim Laden des Pakets mit `\usepackage[syr=true,tgaram=true]{fth-lang}` aktiviert werden. Wenn Griechisch und Hebräisch nicht benötigt werden, können sie analog mit `\usepackage[grk=false,heb=false]{fth-lang}` deaktiviert werden.
 
 ## Anmerkung zu Bibelstellen
-Die FTH-Leitlinien fordern zwar eine Fomrattierung entsprechend den Loccumer Richtlinien, die in Abschnitt 6.1 der Leitlinien angegebenen Abkürzungen entsprechen allerdings gar nicht den Loccumer Richtlinien (das Buch 1.Mose müsste z.B. Gen abgekürzt werden, nicht 1Mose). Bei Benutzung von \bibleverse formattiert das Paket fth-lsa Bibelstellen korrekt entsprechend den echten Loccumer Richtlinien, nicht jedoch wie in 6.1 der FTH-Leitlinien. Wem das zu riskant ist, kann die Option `tre` verwenden, die stattdessen entsprechend der TRE formattiert, was die FTH-Leitlinien ebenfalls erlauben.
+Zur Formattierung von Bibelstellen lädt das Paket `fth-lsa` `bibleref` und `bibleref-german` und stellt die Stile `fth-long` und `fth-short` bereit. Diese geben die Bibelbücher entsprechend Punkt 6.1 der Leitlinien an (dort sind sie mit Loccumer Richtlinien überschrieben, entsprechen diesen allerdings nicht vollständig, sonst müsste bspw. Hiob Ijob heißen). Per Default ist `fth-short` aktiviert. Bei Nutzung dieser Stile sollte `\biblerefformat` *nicht* genutzt werden, sonst würden die Buchnamen auf die Standard-Loccumer Richtlinien zurückgesetz werden. Stattdessen muss mit `\biblerefstyle{fth-long}` bzw. `fth-short` zwischen Lang- und Kurzformat gewechselt werden.
+
+Alternativ zu den Loccumer Richtlinien erlauben die Leitlinien auch das TRE-Format, das beim Laden des Pakets mit der Option `tre` aktiviert werden kann. In dem Fall kann auch problemlos `\biblerefformat` genutzt werden.
+
+Achtung: Bei Verwendung verschiedener Stile in einem Dokument führen die verschiedenen Bezeichnungen der Bücher zu verschiedenen Einträgen im Bibelstellenverzeichnis. Es ist also ratsam, nur einen Stil zu nutzen.
 
 ## Mitwirkung
 Wenn du an diesem Projekt mitarbeiten möchtest, kannst du das gerne tun. Kontaktiere mich, dann gebe ich dir Zugriff. Bitte immer auf Branches mit sinnvollen Namen arbeiten und dann einen Pull Request an mich stellen.

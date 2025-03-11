@@ -24,13 +24,17 @@
 %      lecture-notes: für Mitschriften: kleinere Seitenränder und Zeilenabstände
 
 
-% Anmerkung zu Bibelstellen: Die FTH-Leitlinien fordern zwar eine Fomrattierung entsprechend den
-% Loccumer Richtlinien, die in Abschnitt 6.1 der Leitlinien angegebenen Abkürzungen entsprechen
-% allerdings gar nicht den Loccumer Richtlinien (das Buch 1.Mose müsste z.B. Gen abgekürzt werden,
-% nicht 1Mose). Bei Benutzung von \bibleverse formattiert das Paket fth-lsa Bibelstellen korrekt
-% entsprechend den echten Loccumer Richtlinien, nicht jedoch wie in 6.1 der FTH-Leitlinien. Wem
-% das zu riskant ist, kann die Option tre verwenden, die stattdessen entsprechend der TRE formattiert,
-% was die FTH-Leitlinien ebenfalls erlauben.
+% Anmerkung zu Bibelstellen: Die Abkürzungen nach den Loccumer Richtlinien, wie sie in den FTH-Leitlinien angegeben sind,
+% entsprechen bei einigen Büchern nicht den Loccumer Richtlinien, wie man sie sonst so findet. (Etwa Hiob-Ijob). Deswegen
+% stellt das Paket fth-lsa zwei Stile bereit, die den FTH-Leitlinien entsprechen: fth-long und fth-short.
+% Sie können per \biblerefstyle{fth-long} gewählt werden. Per Default ist fth-short aktiviert.
+% Alternativ kann nach Leitlinien auch der TRE-Stil genutzt werden. Dazu kann beim Laden des Pakets einfach die Option tre
+% genutzt werden. Bei Nutzung des TRE-Stils kann man auch mit \biblerefformat zwischen Lang- und Kurzformat wechseln,
+% bei den Loccumer Richtlinien in FTH-Auslegung würde die Verwendung dieser Befehle dazu führen, dass die Einstellungen
+% auf die Standard-Loccumer Richtlinien zurückspringen.
+
+% Achtung: Bei Verwendung verschiedener Stile in einem Dokument führen die verschiedenen Bezeichnungen der Bücher
+% zu verschiedenen Einträgen im Bibelstellenverzeichnis. Es ist also ratsam, nur einen Stil zu nutzen.
 
 
 \usepackage{fth/fth-nt-utils}
@@ -77,7 +81,11 @@
 In diesem Abschnitt wird etwas in Anführungszeichen gesetzt: \blockquote{In diesem Anführungszeichen gibt es noch welche \enquote{nämlich hier}}. Und jetzt kommt ein Zitat über ein paar mehr Zeilen: \blockquote{\lipsum[1]} Und weiter geht's mit dem Absatz, ohne Einrückung. Das klappt ja hervorragend. \lipsum[2]. \blockquote{Hier ein Zitat, das über fast 3 Zeilen geht und daher nicht als Block dargestellt werden sollte. Es ist wie es ist, und es kommt wie es kommt. So kommt es nämlich immer. Ein bisschen Text brauch ich noch, und noch ein bisschen, und wenn jetzt noch was}
 
 \sloppy
-Bibelstellen sollten entsprechend den Loccumer Richtlinien oder der TRE abgekürzt werden. Hier kommen ein paar, die nach den Loccumer Richtlinien formattiert sind: \ibibleverse{Gen}(1:3), \ibibleverse{2Koen}{17}, \ibibleverse{Offb}(21:). Wenn man das Buch nicht abkürzen will, muss man \texttt{biblerefformat} umstellen: {\biblerefformat{lang} \ibibleverse{Mt}(1:)}
+Bibelstellen sollten entsprechend den Loccumer Richtlinien oder der TRE abgekürzt werden. Dabei entspricht das, was in den FTH-Leitlinien zu den Loccumer Richtlinien steht, nicht unbedingt dem, was man häufig online als Loccumer Richtlinien findet. Das Paket \texttt{fth-lsa} definiert zwei Stile für \texttt{bibleref}, die die Loccumer Richtlinien nach FTH-Auslegung anzeigen. Sie sind mit \texttt{biblerefstyle} einstellbar: \texttt{fth-short} (für Abkürzungen) und \texttt{fth-long} (für ganze Buchnamen). Per Default ist fth-short aktiviert. Das sieht dann so aus: \ibibleverse{Gen}(1:3), \ibibleverse{2Koen}(17:), \ibibleverse{Hi}(21:1), \ibibleverse{Joel}(3:1), \ibibleverse{Hes}(1:), \ibibleverse{Pred}(3-4:).
+
+Wenn man den ganzen Buchnamen zeigen will, nutzt man den Stil fth-long: {\biblerefstyle{fth-long} \ibibleverse{Gen}(1:3), \ibibleverse{2Koen}(17:), \ibibleverse{Hi}(21:1), \ibibleverse{Joel}(3:1), \ibibleverse{Hes}(1:), \ibibleverse{Pred}(3-4:)}
+
+Stattdessen erlauben die FTH-Leitlinien auch das TRE-Format. Das kann aktiviert werden, wenn beim laden des Pakets fth-lsa die Option tre gewählt wird.
 
 \fussy
 \section{Fußnoten}
