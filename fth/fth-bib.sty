@@ -45,6 +45,7 @@ maxnames=2]{biblatex}
   \renewcommand*{\mkbibnameprefix}[1]{\textsc{#1}}
 \fi
 
+% Jeder Bib-Eintrag endet mit einem Punkt, wenn Option gesetzt (Standardeinstellung). Wenn nicht gesetzt, wird der Punkt entfernt
 \ifdefined\@finDot
 \else
   \renewbibmacro*{finentry}{}
