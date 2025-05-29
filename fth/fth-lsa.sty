@@ -152,6 +152,12 @@
 \newcommand{\secondreferee}[1]{\gdef\@secondreferee{#1}}
 \newcommand{\wordcount}[1]{\gdef\@wordcount{#1}}
 \newcommand{\submissionplace}[1]{\gdef\@submissionplace{#1}}
+\newcommand{\institution}[1]{\gdef\@institution{#1}}
+
+% Setze standardmäßig FTH als Institution
+\gdef\@institution{Freie Theologische Hochschule Gießen}
+
+
 
 \renewcommand*{\maketitle}{
 \begin{titlepage}
@@ -186,7 +192,7 @@
             \@thesistype{}\strut\\%
             \ifdefined\@department Vorgelegt in der Abteilung \@department{}\strut\\ \fi%
             \strut\\%
-            Freie Theologische Hochschule Gießen \\%
+            \@institution{} \\%
             \strut\\%
             \strut\\%
             \ifdefined\@referee Erstgutachter: \@referee{} \\ \fi%
@@ -203,7 +209,7 @@
             \fi%
             %
             \ifdefined\@module Modul: \@module{}\strut \\\fi%
-            Freie Theologische Hochschule Gießen \\%
+            \@institution{} \\%
             \ifdefined\@semester \@semester{}\strut \\\fi%
             \ifdefined\@lecturer \@lecturer{}\strut \\\fi%
             %
