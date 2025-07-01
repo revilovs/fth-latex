@@ -19,6 +19,7 @@
 \DeclareOption{tre}{\def\@tre{}}
 \DeclareOption{title-style=sc}{\def\@titlesc{}}
 \DeclareOption{lecture-notes}{\def\@lecturenotes{}}
+\DeclareOption{verbose}{\def\@verbose{}}
 \ProcessOptions\relax
 
 % =========================
@@ -280,6 +281,17 @@ Hiermit erkläre ich wahrheitsgemäß, dass ich diese Arbeit selbstständig und 
     \RequirePackage{enumitem}
     \setitemize{itemsep=0pt}
     \setenumerate{itemsep=0pt}
+\fi
+
+
+% =================
+% Feature verbose *
+% =================
+% Mithilfe des Befehls \textverbose kann zwischen einer Lang- und einer Kurzfassung unterschieden werden. Text in \textverbose{} wird nur ins Dokument aufgenommen, wenn die Option @verbose gesetzt ist.
+\ifdefined\@verbose%
+    \newcommand{\textverbose}[1]{#1}
+\else
+    \newcommand{\textverbose}[1]{}
 \fi
 
 
