@@ -19,12 +19,16 @@
 \DeclareOption{tre}{\def\@tre{}}
 \DeclareOption{title-style=sc}{\def\@titlesc{}}
 \DeclareOption{lecture-notes}{\def\@lecturenotes{}}
+\DeclareOption{verbose}{\def\@verbose{}}
 \ProcessOptions\relax
 
 % =========================
 % Formattierung allgemein *
 % =========================
 \usepackage{libertine}
+\clubpenalty = 10000 % Schusterjungen verhindern
+\widowpenalty = 10000 % Hurenkinder verhindern
+\displaywidowpenalty = 10000
 
 % ========================
 % 1.2 Zeilenabstand etc. *
@@ -72,7 +76,7 @@
 
 % Fußnoten sollen hängend sein
 \RequirePackage[hang]{footmisc}
-\renewcommand{\footnotemargin}{1.2em}
+\renewcommand{\footnotemargin}{1.4em}
 
 % Fußnoten durchgehend nummerieren, außer bei Abschlussarbeiten
 \ifdefined\@thesis\else
@@ -107,6 +111,32 @@
     \setbooktitle{Ecclesiastes}{Pred}%
     \setbooktitle{Ezekiel}{Hes}%
     \setbooktitle{Joel}{Joel}%
+
+    \setbooktitle{1Sam}{1Sam}%
+    \setbooktitle{2Sam}{2Sam}%
+    \setbooktitle{1Koen}{1Kön}%
+    \setbooktitle{2Koen}{2Kön}%
+    \setbooktitle{IChr}{1Chr}%
+    \setbooktitle{IIChr}{2Chr}%
+
+    \setbooktitle{1Makk}{1Makk}%
+    \setbooktitle{2Makk}{2Makk}%
+
+    \setbooktitle{1Kor}{1Kor}%
+    \setbooktitle{2Kor}{2Kor}%
+    \setbooktitle{IThess}{1Thess}%
+    \setbooktitle{IIThess}{2Thess}%
+    \setbooktitle{ITim}{1Tim}%
+    \setbooktitle{IITim}{2Tim}%
+    \setbooktitle{1Petr}{1Petr}%
+    \setbooktitle{2Petr}{2Petr}%
+    \setbooktitle{1Joh}{1Joh}%
+    \setbooktitle{2Joh}{2Joh}%
+    \setbooktitle{3Joh}{3Joh}%
+    \setbooktitle{2Kor}{2Kor}%
+    \setbooktitle{2Kor}{2Kor}%
+    \setbooktitle{2Kor}{2Kor}%
+    \setbooktitle{2Kor}{2Kor}%
 }
 
 \newbiblerefstyle{fth-long}{%
@@ -257,6 +287,17 @@ Hiermit erkläre ich wahrheitsgemäß, dass ich diese Arbeit selbstständig und 
     \RequirePackage{enumitem}
     \setitemize{itemsep=0pt}
     \setenumerate{itemsep=0pt}
+\fi
+
+
+% =================
+% Feature verbose *
+% =================
+% Mithilfe des Befehls \textverbose kann zwischen einer Lang- und einer Kurzfassung unterschieden werden. Text in \textverbose{} wird nur ins Dokument aufgenommen, wenn die Option @verbose gesetzt ist.
+\ifdefined\@verbose%
+    \newcommand{\textverbose}[1]{#1}
+\else
+    \newcommand{\textverbose}[1]{}
 \fi
 
 

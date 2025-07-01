@@ -22,6 +22,7 @@
 %      tre:    Formattiert Bibelstellen anhand TRE anstelle von Loccumer Richtlinien (siehe dazu Anmerkung unten)
 %      title-style=sc: verwendet für Titel und Untertitel auf dem Deckblatt Kapitälchen antatt Großbuchstaben
 %      lecture-notes: für Mitschriften: kleinere Seitenränder und Zeilenabstände
+%	verbose: der Text im Befehl \textverbose{} wird abgedrückt, andernfalls wird er ignoriert
 
 
 % Anmerkung zu Bibelstellen: Die Abkürzungen nach den Loccumer Richtlinien, wie sie in den FTH-Leitlinien angegeben sind,
@@ -86,6 +87,9 @@ Bibelstellen sollten entsprechend den Loccumer Richtlinien oder der TRE abgekür
 Wenn man den ganzen Buchnamen zeigen will, nutzt man den Stil fth-long: {\biblerefstyle{fth-long} \ibibleverse{Gen}(1:3), \ibibleverse{2Koen}(17:), \ibibleverse{Hi}(21:1), \ibibleverse{Joel}(3:1), \ibibleverse{Hes}(1:), \ibibleverse{Pred}(3-4:)}
 
 Stattdessen erlauben die FTH-Leitlinien auch das TRE-Format. Das kann aktiviert werden, wenn beim laden des Pakets fth-lsa die Option tre gewählt wird.
+
+
+Man kann sehr viel schreiben.\textverbose{ Dieser Text wird nur angezeigt, wenn die Option "verbose" gesetzt ist. Für das optimale Format, sollte kein Leerzeichen vor \textit{und} nach dem Befehlt vorhanden sein, da sonst im nicht-verbose Modus eine etwas größere Lücke entstehen kann.} Manchmal ist es besser, weniger zu schreiben.
 
 \fussy
 \section{Fußnoten}
