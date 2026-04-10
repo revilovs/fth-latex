@@ -1,14 +1,3 @@
-% Copyright 2007 by Till Tantau
-%
-% This file may be distributed and/or modified
-%
-% 1. under the LaTeX Project Public License and/or
-% 2. under the GNU Public License.
-%
-% See the file doc/licenses/LICENSE for more details.
-
-
-
 \PassOptionsToPackage{right}{beamerouterthemesidebar}
 \PassOptionsToPackage{width=2cm}{beamerouterthemesidebar}
 
@@ -21,7 +10,6 @@
 \ProcessOptionsBeamer
 
 
-
 \mode<presentation>
 
 %\usecolortheme{whale}
@@ -32,18 +20,14 @@
 \setbeamercolor*{titlelike}{use=structure,fg=structure.fg,bg=fthGreen}
 
 \useoutertheme[height=0pt]{sidebar}
-%\useoutertheme{infolines}
 \useinnertheme[shadow=true]{rounded}
 
-%\setbeamercolor{sidebar}{parent=palette primary}
 \setbeamercolor{sidebar}{bg=fthGreen}
 
 {\usebeamercolor{palette quaternary}}
 {\usebeamercolor{palette primary}}
 
-%\setbeamertemplate{sidebar canvas \beamer@sidebarside}[vertical shading][top=palette quaternary.bg,bottom=palette primary.bg]
 \setbeamertemplate{sidebar canvas \beamer@sidebarside}[vertical shading][top=fthGreen,bottom=white]
-
 
 \mode
 <all>
