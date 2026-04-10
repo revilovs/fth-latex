@@ -23,10 +23,15 @@ Das Paket `fth-lang` (und `fth-nt-utils`, das `fth-lang` benötigt) benötigt be
 Das Repository stellt verschiedene Pakete zur Verfügung. Es sollten nur diejenigen, die wirklich benötigt werden, verwendet werden:
 - `fth-lang` konfiguriert die Verwendung passender Fonts für Griechisch, Hebräisch und bei Bedarf Targum-Aramäisch und Syrisch. Es sollte als erstes geladen werden.
 - `fth-lsa` setzt die Formattierungs-Richtlinien aus den Leitlinien für schriftliche Arbeiten an der FTH (ohne Zitate) um.
+- `beamerthemeGiessen` kann für Präsentationen (`\documentclass{beamer}`) in FTH-Farben eingesetzt werden (`\usetheme{Giessen}`), siehe Beispiel.
 - `fth-bib` setzt die Richtlinien zur Formattierung von Zitaten und Literaturverzeichnis um.
 - `fth-nt-utils` stellt einige hilfreiche Befehle zur Arbeit mit neutestamentlichen Texten zur Verfügung, z.B. für Textkritik oder synoptische Vergleiche.
 
-Ausführliche Beispiele zur Verwendung aller Pakete finden sich in `example.tex`, `example_handout.tex` und `example_thesis.tex` (da die Vorgaben für Abschlussarbeiten etwas anders sind.)
+Ausführliche Beispiele zur Verwendung aller Pakete finden sich im Verzeichnis `examples`:
+- `example.tex`
+- `example_handout.tex`
+- `example_beamer.tex`
+- `example_thesis.tex` (da die Vorgaben für Abschlussarbeiten etwas anders sind).
 
 ## Kompilierung
 Ich verwende zur Kompilierung `latexmk` mit folgenden Einstellungen
