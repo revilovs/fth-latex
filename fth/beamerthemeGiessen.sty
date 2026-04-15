@@ -1,0 +1,33 @@
+\PassOptionsToPackage{right}{beamerouterthemesidebar}
+\PassOptionsToPackage{width=2cm}{beamerouterthemesidebar}
+
+\DeclareOptionBeamer{hideothersubsections}{\PassOptionsToPackage{hideothersubsections=#1}{beamerouterthemesidebar}}
+\DeclareOptionBeamer{hideallsubsections}{\PassOptionsToPackage{hideallsubsections=#1}{beamerouterthemesidebar}}
+
+\DeclareOptionBeamer{width}{\PassOptionsToPackage{width=#1}{beamerouterthemesidebar}}
+\DeclareOptionBeamer{left}{\PassOptionsToPackage{left}{beamerouterthemesidebar}}
+\DeclareOptionBeamer{right}{\PassOptionsToPackage{right}{beamerouterthemesidebar}}
+\ProcessOptionsBeamer
+
+
+\mode<presentation>
+
+%\usecolortheme{whale}
+\definecolor{fthGreen}{RGB}{159,184,171}
+\definecolor{fthBlue}{RGB}{34,54,79}
+\usecolortheme[named=fthBlue]{structure}
+
+\setbeamercolor*{titlelike}{use=structure,fg=structure.fg,bg=fthGreen}
+
+\useoutertheme[height=0pt]{sidebar}
+\useinnertheme[shadow=true]{rounded}
+
+\setbeamercolor{sidebar}{bg=fthGreen}
+
+{\usebeamercolor{palette quaternary}}
+{\usebeamercolor{palette primary}}
+
+\setbeamertemplate{sidebar canvas \beamer@sidebarside}[vertical shading][top=fthGreen,bottom=white]
+
+\mode
+<all>

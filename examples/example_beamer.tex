@@ -1,0 +1,50 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Giessen}
+
+\usepackage{fth-lang}
+\usepackage[authorsc]{fth-bib}
+
+
+\title{Meine FTH-Präsentation}
+\author{Max Musterstudent}
+\institute{\includegraphics[height=1cm]{img/fth-logo}}
+
+\addbibresource{literature.bib}
+
+\begin{document}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+\section{Listen in LaTeX (Section)} % Der Section Titel erscheint in der Inhaltsübersicht
+\begin{frame}{Listen in LaTeX (Frame)} % Der Frametitel ist der Titel der Folie
+	\begin{itemize}
+		\item Hier können
+		\pause
+		\item Bulletpoints
+		\pause
+		\item nacheinander
+		\pause
+		\item eingeblendet werden!
+	\end{itemize}
+\end{frame}
+
+
+
+
+\section{Literatur}
+\begin{frame}{Literatur in LaTeX ist toll!}
+	\begin{itemize}
+		\item \fullcite{dahl}
+		\pause
+		\item \fullcite{fuhs}
+	\end{itemize}
+\end{frame}
+
+
+
+\end{document}
