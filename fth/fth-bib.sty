@@ -112,8 +112,20 @@ maxnames=2]{biblatex}
 }
 
 \newbibmacro*{volume+number}{
-  \iffieldundef{volume}{}{\printfield{volume}\printtext{/}}%
-  \iffieldundef{issue}{\printfield{number}}{\printfield{issue}}
+  \iffieldundef{volume}{%
+    % No volume set, just print number or issue
+    \iffieldundef{issue}{\printfield{number}}{\printfield{issue}}%
+  }{%
+    % Volume set, print volume
+    \printfield{volume}%
+    \iffieldundef{issue}{%
+      % No issue set, try number
+      \iffieldundef{number}{}{\printtext{/}\printfield{number}}%
+    }{%
+      % Print issue
+      \printtext{/}\printfield{issue}%
+    }%
+  }
   \newunit\newblock
 }
 
