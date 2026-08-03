@@ -225,7 +225,10 @@
             \@institution{} \\%
             \strut\\%
             \strut\\%
-            \ifdefined\@referee Erstgutachter: \@referee{} \\ \fi%
+            \ifdefined\@referee 
+                \ifdefined\@secondreferee Erstgutachter: \@referee{} \\ 
+                \else Gutachter: \@referee{} \\ \fi
+            \fi%
             \ifdefined\@secondreferee Zweitgutachter: \@secondreferee{} \\ \fi%
             \strut\\%
             \ifdefined\@wordcount \@wordcount{} Wörter \\ \fi%
