@@ -166,8 +166,6 @@ maxnames=2]{biblatex}
     \usebibmacro{author/translator+others}%
     \setunit{\printdelim{nametitledelim}}\newblock
     \usebibmacro{title}%
-    \newunit
-    \printlist{language}%
     \newunit\newblock
     \usebibmacro{byauthor}%
     \newunit\newblock
@@ -189,18 +187,10 @@ maxnames=2]{biblatex}
     \newunit\newblock
     \usebibmacro{series+number}%
     \newunit\newblock
-    % \printfield{note}%
-    % \newunit\newblock
-    \usebibmacro{publisher+location+date}%
+    \usebibmacro{edition+location+year}%
     \newunit\newblock
     \usebibmacro{chapter+pages}%
     \newunit\newblock
-    % \iftoggle{bbx:isbn}
-    %   {\printfield{isbn}}
-    %   {}%
-    % \newunit\newblock
-    % \usebibmacro{doi+eprint+url}%
-    % \newunit\newblock
     \usebibmacro{addendum+pubstate}%
     \setunit{\bibpagerefpunct}\newblock
     \usebibmacro{pageref}%
@@ -260,8 +250,6 @@ maxnames=2]{biblatex}
   \usebibmacro{author/translator+others}%
   \setunit{\labelnamepunct}\newblock
   \usebibmacro{title}%
-  \newunit
-  \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
   \newunit\newblock
@@ -270,8 +258,6 @@ maxnames=2]{biblatex}
   \newunit\newblock
   \usebibmacro*{booktitle+series}%
   \newunit\newblock
-%   \printfield{edition}%
-%   \newunit
   \iffieldundef{maintitle}
     {\printfield{volume}%
      \printfield{part}}
@@ -279,18 +265,10 @@ maxnames=2]{biblatex}
   \newunit
   \printfield{volumes}%
   \newunit\newblock
-  % \printfield{note}%
-  % \newunit\newblock
   \usebibmacro{edition+location+year}%
   \newunit\newblock
   \usebibmacro{chapter+pages}%
   \newunit\newblock
-%  \iftoggle{bbx:isbn}
-%    {\printfield{isbn}}
-%    {}%
-%  \newunit\newblock
-%   \usebibmacro{doi+eprint+url}%
-%   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
@@ -321,8 +299,6 @@ maxnames=2]{biblatex}
   \newunit\newblock
   \usebibmacro*{booktitle+series}%
   \newunit\newblock
-%   \printfield{edition}%
-%   \newunit
   \iffieldundef{maintitle}
     {\printfield{volume}%
      \printfield{part}}
@@ -330,18 +306,10 @@ maxnames=2]{biblatex}
   \newunit
   \printfield{volumes}%
   \newunit\newblock
-  % \printfield{note}%
-  % \newunit\newblock
   \usebibmacro{edition+location+year}%
   \newunit\newblock
   \usebibmacro{chapter+pages}%
   \newunit\newblock
-%  \iftoggle{bbx:isbn}
-%    {\printfield{isbn}}
-%    {}%
-%  \newunit\newblock
-%   \usebibmacro{doi+eprint+url}%
-%   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
   \newunit\newblock
   \iftoggle{bbx:related}
