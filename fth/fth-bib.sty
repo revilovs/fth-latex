@@ -157,6 +157,22 @@ maxnames=2]{biblatex}
   \newunit\newblock
 }
 
+\newbibmacro*{booktitle+mvs+series}{
+  \newunit\newblock
+  \printfield{booktitle}%
+  \iffieldundef{volumes}{}
+  {\setunit*{\addcomma\addspace}
+   \printfield{volumes}
+  }
+  \iffieldundef{series}
+  {}
+  {
+  \setunit*{\addspace}
+  \printtext[parens]{\usebibmacro{series+number}}%
+  }
+  \newunit\newblock
+}
+
 \newbibmacro*{edition+location+year}{
     \printfield{edition}%
     \setunit*{\addspace}
@@ -344,6 +360,26 @@ maxnames=2]{biblatex}
      \usebibmacro{related}}
     {}%
   \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{collection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \newunit\newblock
+  \usebibmacro*{booktitle+mvs+series}%
+  \newunit\newblock
+  \usebibmacro{edition+location+year}%
+  \newunit\newblock
+  \usebibmacro{chapter+pages}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}
+}
 
 \renewbibmacro*{byeditor+others}{% %Hg. bzw Hgg. in Klammern hinter Herausgeber, statt davor
         \ifnameundef{editor}
