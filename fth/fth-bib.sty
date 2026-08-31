@@ -129,9 +129,13 @@ maxnames=2]{biblatex}
   \newunit\newblock
 }
 
-\newbibmacro*{booktitle+series}{
+\newbibmacro*{booktitle+volume+series}{
   \newunit\newblock
   \printfield{booktitle}%
+  \iffieldundef{volume}{}
+  {\setunit*{\addcomma\addspace}
+   \printfield{volume}
+  }
   \iffieldundef{series}
   {}
   {
@@ -256,14 +260,7 @@ maxnames=2]{biblatex}
   \usebibmacro{in:}%
   \usebibmacro{byeditor+others}%
   \newunit\newblock
-  \usebibmacro*{booktitle+series}%
-  \newunit\newblock
-  \iffieldundef{maintitle}
-    {\printfield{volume}%
-     \printfield{part}}
-    {}%
-  \newunit
-  \printfield{volumes}%
+  \usebibmacro*{booktitle+volume+series}%
   \newunit\newblock
   \usebibmacro{edition+location+year}%
   \newunit\newblock
@@ -297,14 +294,7 @@ maxnames=2]{biblatex}
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
   \newunit\newblock
-  \usebibmacro*{booktitle+series}%
-  \newunit\newblock
-  \iffieldundef{maintitle}
-    {\printfield{volume}%
-     \printfield{part}}
-    {}%
-  \newunit
-  \printfield{volumes}%
+  \usebibmacro*{booktitle+volume+series}%
   \newunit\newblock
   \usebibmacro{edition+location+year}%
   \newunit\newblock
